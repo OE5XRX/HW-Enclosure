@@ -17,8 +17,9 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
    fits the side bores (x = ±68): plate columns z = 4.5/105.5 and 10/100 equal the frames'
    side bores at (y +55, z 4.5) and (y -49, z 10) of the bottom frame and z 105.5/100 of the
    top frame. No front/back face has bores at two different heights. The plate height 110 equals
-   the stack height. The occurrences keep the names `Deckplatte-vorne` (= left, -X) and
-   `Deckplatte-hinten` (= right, +X) from the plan. **Rename them to `Deckplatte-links`/`-rechts`?**
+   the stack height. The occurrences were therefore renamed (ruling R9) from the plan's
+   `Deckplatte-vorne`/`-hinten` to `Deckplatte-links` (-X) and `Deckplatte-rechts` (+X). Still open:
+   the spec says "vorne/hinten". **Peter to confirm the side placement.**
 2. **One plate hole is 1.0 mm off.** Hole spacing from the plate's left column to its right
    column is 104 (bottom hole, x 8 to 112) and 103 (top hole, x 9 to 112). The side bores are
    104 apart (y +55 to -49) in **both** frames. With 3 holes on target (residual 0.000), the 4th
@@ -63,8 +64,8 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
 |---|---|---|---|---|---|---|
 | 1 | Gestell | `desktop/parts/grundgestell.sc` | [0, 0, 0] | none | VERIFIED | E1, E2 |
 | 2 | Gestell-gespiegelt | `desktop/parts/grundgestell-gespiegelt.sc` | [0, 0, 110] | Ry(180) | VERIFIED | E1, E2 |
-| 3 | Deckplatte-vorne (actually **left, -X**, logo upright) | `desktop/parts/deckplatte.sc` | [-68, 4.5, 55] | Rx(90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
-| 4 | Deckplatte-hinten (actually **right, +X**, logo upside down) | `desktop/parts/deckplatte.sc` | [68, 4.5, 55] | Rx(-90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
+| 3 | Deckplatte-links (**left, -X**, logo upright; spec: "vorne") | `desktop/parts/deckplatte.sc` | [-68, 4.5, 55] | Rx(90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
+| 4 | Deckplatte-rechts (**right, +X**, logo upside down; spec: "hinten") | `desktop/parts/deckplatte.sc` | [68, 4.5, 55] | Rx(-90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
 | 5 | Leiste-1 (front, bottom frame) | `desktop/parts/leiste.sc` | [0, 60, 4.25] | Rx(-90) | VERIFIED | E7 |
 | 6 | Leiste-2 (front, top frame) | `desktop/parts/leiste.sc` | [0, 60, 105.75] | Rx(-90), Ry(180) | VERIFIED | E7 |
 | 7 | Leiste-3 (back, bottom, over BusBoard) | `desktop/parts/leiste.sc` | [0, -55.6012, 9.75] | Rx(-90), Rz(180) | UNVERIFIED | E7, Q4 |
@@ -83,8 +84,8 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
 |---|---|---|---|
 | Gestell | +X | +Y | +Z |
 | Gestell-gespiegelt | -X | +Y | -Z |
-| Deckplatte-vorne (left) | -Y | +Z | -X (logo outward) |
-| Deckplatte-hinten (right) | -Y | -Z | +X (logo outward) |
+| Deckplatte-links | -Y | +Z | -X (logo outward) |
+| Deckplatte-rechts | -Y | -Z | +X (logo outward) |
 | Leiste-1 | +X | -Z | +Y |
 | Leiste-2 | -X | +Z | +Y |
 | Leiste-3 | -X | -Z | -Y |
@@ -143,7 +144,7 @@ that it lines up with the normal frame when turned over.
 
 - Edge.Cuts gr_rect (65.284, 25.396)–(182.650, 125.396) → 117.366 × 100.000.
 - 12 × `MountingHole_3.2mm_M3`: x = 75.284 + 20i (i = 0…5), y = 30.396 (H101–H106) and 120.396
-  (H107–H112). Hole pattern centre x 125.284. Edge distances: 10.000 left and 7.366 right,
+  (H109, H110, H111, H112, H107, H108 from left to right). Hole pattern centre x 125.284. Edge distances: 10.000 left and 7.366 right,
   5.000 top and bottom.
 - 6 × `PCN10-20P-2.54DSA` (straight 2 × 10 pin header, F.Cu, rot 180). For each one the b row
   is at the hole x and the a row at x - 2.54. Pins 1…10 run y 86.826 → 63.966. Pegs Ø2.85 sit at
@@ -167,7 +168,7 @@ F.Cu plane at y = -54.
 | hole | assembly (x, y, z) | pocket | residual |
 |---|---|---|---|
 | H101…H106 (v 30.396) | (-50…+50 step 20, -54, 10) | bottom pockets x -50+20i | 0.000 (all 6) |
-| H107…H112 (v 120.396) | (-50…+50 step 20, -54, 100) | top pockets | 0.000 (all 6) |
+| H109, H110, H111, H112, H107, H108 (v 120.396; x -50…+50 step 20) | (-50…+50 step 20, -54, 100) | top pockets | 0.000 (all 6) |
 
 Board extents: x -60.000…57.366, z 5…105. The 1.317 off-centre of the hole pattern is to -X.
 Nothing on F.Cu besides the mounting holes lies in the wall bands (z < 20 or z > 90), so the
@@ -259,7 +260,7 @@ none at 4.5/105.5.
 | Leiste-1 front bottom | (±50, 60, 4.5) | front bores bottom frame (x ±50, y 60, z 4.5) | 0.000 | y 60…63, z 0…8.5 = deck front face |
 | Leiste-2 front top | (±50, 60, 105.5) | front bores top frame | 0.000 | y 60…63, z 101.5…110 |
 | Leiste-3 back bottom | (±50, -55.601, 10) | BusBoard H101/H106 → pockets (±50, -54, 10) | 0.000 | y -58.601…-55.601, z 5.5…14 |
-| Leiste-4 back top | (±50, -55.601, 100) | BusBoard H107/H112 → pockets (±50, -54, 100) | 0.000 | y -58.601…-55.601, z 96…104.5 |
+| Leiste-4 back top | (±50, -55.601, 100) | BusBoard H109/H108 → pockets (±50, -54, 100) | 0.000 | y -58.601…-55.601, z 96…104.5 |
 
 In each strip the 4.5 edge distance faces the frame's outer face (underside / top). The front
 strips close the open groove ends (grooves run to y 61) and cover the deck's front faces. The

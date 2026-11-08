@@ -77,12 +77,13 @@ Stecker stecken (alle 20 Stifte je Slot in ihren Kammern). Offen:
   sich um 0,1 mm (4,129 mm³ je Slot). Die Ursache ist offen, vermutlich Modellungenauigkeit; die
   Prüfung meldet deshalb ⚠️.
 
-Die Deckplatten heißen in `station.sc` noch `Deckplatte-vorne`/`-hinten` (= links/rechts).
+Die Deckplatten heißen in `station.sc` `Deckplatte-links` (-X) und `Deckplatte-rechts` (+X); die Spec sagte "vorne/hinten" (Seitenzuordnung von Peter zu bestätigen, assembly.md Frage 1).
 
 ## Dateien öffnen und neu erzeugen
 
 **Baugruppe öffnen:** `desktop/station.sc` in SolidCraft öffnen. Die Gehäuseteile sind verknüpfte
-Komponenten aus `desktop/parts/`, die Platinen STEP-Komponenten aus `pcb/`. Slot 1 PowerBoard,
+Komponenten aus `desktop/parts/` (Änderungen an den Teilen wirken in der Baugruppe). Die Platinen sind
+**nicht** verknüpft: `station.sc` enthält eingebettete STEP-Schnappschüsse der Dateien aus `pcb/`. Slot 1 PowerBoard,
 Slot 2 CM4Carrier, Slot 3-6 FMTransceiver (Platzhalter). Der DeviceTester liegt als STEP bereit
 (`pcb/DeviceTester.step`, `pcb/DeviceTester-slot.step`), ist aber nicht bestückt.
 
@@ -94,16 +95,24 @@ pcb/export-steps.sh [MODULES_DIR]   # Standard: .. (dort liegen HW-Module-*)
 
 Braucht `kicad-cli` (10.x) und lokale Klone der `HW-Module-*`-Repos. Das Skript bricht ab, wenn ein
 Repo uncommittete Änderungen hat oder nicht auf `origin/main` steht. Quelle (Repo + Commit) je STEP
-steht in [pcb/SOURCES.md](pcb/SOURCES.md).
+steht in [pcb/SOURCES.md](pcb/SOURCES.md); bei einem Teil-Lauf (`MODULES=...`) bleiben die Zeilen der
+anderen Module erhalten.
 
-**Prüfungen** (SolidCraft muss laufen, gestartet mit `solidcraft --control 7878`):
+`export-steps.sh` aktualisiert `station.sc` **nicht**. Neue STEP einsetzen: die alte PCB-Occurrence in
+`station.sc` löschen, die neue STEP mit `file.insert_step` einfügen (Transformation aus
+[reference/assembly.md](reference/assembly.md)) und danach `python3 tools/check_parts.py` ausführen.
+
+**Prüfungen** (SolidCraft muss laufen, gestartet mit `solidcraft --control 7878`; verwendet wurde SolidCraft 0.27.1,
+`solidcraft-cli` muss im `PATH` liegen):
 
 ```
 python3 tools/check_parts.py [name ...]   # Features und Maße der Teile und Baugruppen (nur lesend)
 python3 tools/fit_check.py [--no-images]  # Passungsprüfung, schreibt reference/fit-check.json
 ```
 
-`fit_check.py` liefert Exit-Code 1, solange der Stecker-Modellkonflikt besteht.
+Exit-Codes: `check_parts.py` 0 = alles PASS, 1 = Prüfung fehlgeschlagen, 2 = SolidCraft nicht erreichbar.
+`fit_check.py` (auch `--json PFAD`) liefert 1 (Warnung), solange der Stecker-Modellkonflikt besteht, und 2,
+wenn SolidCraft nicht läuft oder ein unerwarteter Fehler auftritt.
 
 ![Schnitt durch die Kartennuten](reference/img/section-slot2-grooves.png)
 

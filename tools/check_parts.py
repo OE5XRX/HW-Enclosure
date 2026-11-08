@@ -4,6 +4,8 @@
 Usage: python3 tools/check_parts.py [name ...]   (default: all parts and assemblies)
 Exit 0 only if every named part opens, has no feature error, no rolled_back
 feature, and matches its expected volume / bounding box / centre of mass.
+Exit 1 on a failed check, exit 2 if SolidCraft is not reachable (start it with
+`solidcraft --control 7878`) or solidcraft-cli is missing.
 An assembly passes when it opens without feature errors or rolled_back features,
 has exactly the expected top-level occurrences (count and names), every
 occurrence's bounding-box centre is within tolerance of the centre implied by
@@ -247,8 +249,13 @@ def main(argv):
         for k in missing:
             print(f"FAIL {k}: file not found")
         return 1
-    from sc_mcp import SolidCraft
-    sc = SolidCraft(allow_paths=[ROOT])
+    from sc_mcp import SolidCraft, SolidCraftError
+    try:
+        sc = SolidCraft(allow_paths=[ROOT])
+        sc.inspect()  # the constructor is lazy: probe that the app is reachable
+    except (SolidCraftError, OSError) as e:
+        print(f"SolidCraft läuft nicht — starte `solidcraft --control 7878` ({e})")
+        return 2
     ok = True
     try:
         for rel, exp in selected.items():

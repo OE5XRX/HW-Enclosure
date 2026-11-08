@@ -24,7 +24,9 @@ different design is open it must be clean; station.sc is then opened.
 
 Writes reference/fit-check.json (default) and, unless --no-images, the
 screenshots under reference/img/. Exit 0 only if checks A, B and C all
-"pass"; 1 if any is "warn" or "fail"; 2 if the app is unusable.
+"pass"; 1 if any is "warn" or "fail"; 2 if the app is unusable (not running:
+start `solidcraft --control 7878`; solidcraft-cli missing) or on an unexpected
+error. Usage: fit_check.py [--no-images] [--json PATH]
 
 Board thickness: the KiCad STEP board bodies are ~1.516 thick (core without
 copper/mask), while the component plane sits at 1.6012 above the underside.
@@ -58,6 +60,7 @@ COLLISION_MM3 = 0.01   # overlap above this is a collision
 HOLE_TOL = 0.1         # mm, hole axis offset that still passes
 PIN_TOL = 0.15         # mm, pin-to-cavity centre offset that still passes
 MATE_TOL = 0.2         # mm, axial interference / mating gap that still passes
+EXECUTE_TIMEOUT_S = 900  # fresh clearance run takes ~453 s
 BOARD_T = 1.6012       # mm, underside to component plane of the KiCad STEPs
 
 
@@ -70,9 +73,13 @@ def execute(sc, command, params, log=None):
     except SolidCraftError as e:
         if not str(e).startswith("still running"):
             raise
+    deadline = time.monotonic() + EXECUTE_TIMEOUT_S
     while True:
+        if time.monotonic() > deadline:
+            raise SolidCraftError(f"{command}: no result after {EXECUTE_TIMEOUT_S} s")
         r = sc.call("pending")
         if r.get("done") is False:
+            time.sleep(2)
             if log:
                 log(f"  ... {command} still running ({r.get('running_s')} s)")
             continue
@@ -416,15 +423,34 @@ def images(sc):
 
 # ---------------------------------------------------------------- main
 
+NOT_RUNNING = "SolidCraft läuft nicht — starte `solidcraft --control 7878`"
+
+
 def main(argv):
-    out_json = os.path.join(ROOT, "reference", "fit-check.json")
-    if "--json" in argv:
-        out_json = argv[argv.index("--json") + 1]
+    import argparse
+    ap = argparse.ArgumentParser(prog="fit_check.py", description="Passungspruefung station.sc "
+                                 "(exit 0 pass, 1 warn/fail, 2 app unusable / unexpected error)")
+    ap.add_argument("--json", default=os.path.join(ROOT, "reference", "fit-check.json"),
+                    metavar="PATH", help="output JSON (default reference/fit-check.json)")
+    ap.add_argument("--no-images", action="store_true", help="skip screenshots")
+    try:
+        args = ap.parse_args(argv)
+    except SystemExit as e:
+        return 0 if e.code in (0, None) else 2
+    try:
+        return run(args)
+    except Exception as e:  # noqa: BLE001 - any unexpected failure is "unusable", not "warn"
+        print(f"{NOT_RUNNING}\nERROR {type(e).__name__}: {e}")
+        return 2
+
+
+def run(args):
+    out_json = args.json
     log = lambda s: print(s, file=sys.stderr, flush=True)  # noqa: E731
     try:
         sc = SolidCraft(allow_paths=[ROOT])
-    except OSError as e:
-        print(f"cannot start solidcraft-cli: {e}")
+    except (SolidCraftError, OSError) as e:
+        print(f"{NOT_RUNNING} ({e})")
         return 2
     try:
         ensure_station(sc)
@@ -445,13 +471,13 @@ def main(argv):
             "C_holes": check_holes(topo, props),
             "interference": col,
         }
-        if "--no-images" not in argv:
+        if not args.no_images:
             log("screenshots")
             result["images"] = images(sc)
         if sc.inspect().get("dirty"):
             result["warning"] = "design became dirty during the check"
     except SolidCraftError as e:
-        print(f"ERROR {e}")
+        print(f"{NOT_RUNNING}\nERROR {e}")
         return 2
     finally:
         sc.close()

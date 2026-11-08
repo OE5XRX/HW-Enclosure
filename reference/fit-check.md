@@ -90,7 +90,7 @@ Axes of the 12 Ø3.2 BusBoard holes (`BusBoard_PCB`) against the 12 Ø5 pocket a
 | holes | x | z | offset |
 |---|---|---|---|
 | H101–H106 → bottom pockets | −50, −30, −10, 10, 30, 50 | 10 | 0.000 (all 6) |
-| H107–H112 → top pockets | −50, −30, −10, 10, 30, 50 | 100 | 0.000 (all 6) |
+| H109, H110, H111, H112, H107, H108 → top pockets | −50, −30, −10, 10, 30, 50 | 100 | 0.000 (all 6) |
 
 The board edges rest on both 5 mm steps: contact at z 5 (bottom frame) and z 105 (top frame). The header housings sit at y −54.000 (housing top −48.8 = −54.000 + 5.2), i.e. the BusBoard's component side lies exactly on the back faces y −54. The `BusBoard_PCB` body face at y −54.085 is the same thin-body artefact as on the modules (Befund 5).
 
@@ -101,7 +101,7 @@ The board edges rest on both 5 mm steps: contact at z 5 (bottom frame) and z 105
 | Deckplatte-links | 4 holes vs side bores (Ø3.2, x −63) | 0.000, **1.000** (y 54 vs 55, z 105.5), 0.000, 0.000 |
 | Deckplatte-rechts | 4 holes vs side bores (x +63) | 0.000, **1.000** (y 54 vs 55, z 4.5), 0.000, 0.000 |
 | Leiste-1 / Leiste-2 | 2 holes each vs front bores (y 55, x ±50) | 0.000 |
-| Leiste-3 / Leiste-4 | 2 holes each vs BusBoard holes H101/H106, H107/H112 | 0.000 |
+| Leiste-3 / Leiste-4 | 2 holes each vs BusBoard holes H101/H106, H109/H108 | 0.000 |
 
 ## Interference summary
 
@@ -116,7 +116,7 @@ The board edges rest on both 5 mm steps: contact at z 5 (bottom frame) and z 105
 1. **Connector models overlap 0.10 mm axially (all 6 slots, 4.129 mm³ each).** The socket's mating face lies exactly on the header housing (y −48.8; this is how assembly.md placed it). Behind that, the header model has a second seating plane at y −42.4 (11.6 above the BusBoard component plane) and the socket model one at y −42.5: two seating planes 0.10 mm apart. The overlap is 4.129 mm³ / 0.1 mm = 41.3 mm² over a bbox of 8.1 × 32.1 mm, i.e. housing-sized, not the pin tips (20 pins × 0.36 mm² = 7.2 mm² at most). The cause is unresolved: no datasheet mated height was checked. In reality one of two things happens. Either the header bottoms out in the socket 0.10 mm before the faces touch, so the module sits 0.10 mm further forward: back-wall clearance goes from 0.126 to 0.226 and the front edge to 57.726 (frame front 60). Or the two vendor models are not exact about the mated height. Neither case is a fit problem: the board stays in the grooves (3.5 mm engagement along z is unaffected) and the pins are inside the cavities. → ⚠️ instead of ✅ for (b).
 2. **Cover plate hole 1.000 off (Q2, confirmed on both plates).** Hole B of the plate (local (9 | 105.5)) lands at y 54.0 while the bores are at y 55.0. It is at the top front corner on the left plate and the bottom front corner on the right plate. The Ø3.2 hole and the Ø3.2 bore overlap only in a 2.2 mm wide passage, so an M3 screw (3.0) will not go through without opening up the hole. Either the plate hole should be (8 | 105.5), or the frame bore is at y 54.
 3. **Logo upside down on Deckplatte-rechts (Q3, confirmed).** See the right-side picture. The geometry proves it independently: the plate's 1.0-off hole B (local top) lies at the bottom (z 4.5) on the right plate and at the top (z 105.5) on the left plate, so the right plate is the same part turned 180° about its normal.
-4. **Back strips Leiste-3/-4 (Q4).** Geometrically consistent: hole offset 0.000 to BusBoard H101/H106 and H107/H112 (and thus to the pockets), lying flat on the BusBoard's back face (contact), no overlap with anything. The header pin tails stick out to y −57.2 at z 33…77, far from the strip bands z 5.5…14 / 96…104.5. The strips are 0.5 from the frame steps (z 5 vs 5.5). Whether they are *meant* to be there is still Peter's call.
+4. **Back strips Leiste-3/-4 (Q4).** Geometrically consistent: hole offset 0.000 to BusBoard H101/H106 and H109/H108 (and thus to the pockets), lying flat on the BusBoard's back face (contact), no overlap with anything. The header pin tails stick out to y −57.2 at z 33…77, far from the strip bands z 5.5…14 / 96…104.5. The strips are 0.5 from the frame steps (z 5 vs 5.5). Whether they are *meant* to be there is still Peter's call.
 5. **Board body thickness is a model artefact, not a gap.** The KiCad STEP export makes every board body ~1.516 thick (core without copper/mask), while all components sit on the 1.6012 component plane. On the BusBoard the header bases are exactly at y −54.000 (on the back faces), so the real board lies flat on the frame; the 0.085 between `BusBoard_PCB` (y −54.085) and y −54 does not exist on the real part and nothing shifts when screwed. On the modules the same artefact would inflate the +X groove clearance to 1.105; the real value is 1.020 (table (a)).
 
 No part or placement was changed. Raw numbers: `reference/fit-check.json`.

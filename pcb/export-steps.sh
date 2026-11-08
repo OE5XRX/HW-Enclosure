@@ -2,6 +2,7 @@
 # Export module PCB STEP files from a clean origin/main checkout.
 # Usage: export-steps.sh [MODULES_DIR]   (default: ..)
 # Env (optional): MODULES="BusBoard DeviceTester" subset, OUT_DIR override.
+# SOURCES.md is merged row by row, so a subset run keeps the other rows.
 # Exit 2 if a module repo is dirty or HEAD != origin/main.
 set -euo pipefail
 here="$(cd "$(dirname "$0")" && pwd)"
@@ -24,24 +25,41 @@ for m in $modules; do
   fi
 done
 
-rows=""
+# SOURCES.md is merged: rows of modules not exported in this run are kept.
+declare -A rows
+sf="$out/SOURCES.md"
+if [ -f "$sf" ]; then
+  while IFS= read -r line; do
+    case "$line" in
+      "| module "*|"|---"*) ;;
+      "| "*) key="${line#| }"; key="${key%% |*}"; rows["$key"]="$line" ;;
+    esac
+  done < "$sf"
+fi
 for m in $modules; do
   repo="$mods/HW-Module-$m"
   shopt -s nullglob; pcbs=("$repo"/*.kicad_pcb); shopt -u nullglob
   [ "${#pcbs[@]}" -eq 1 ] || { echo "error: HW-Module-$m: expected exactly one .kicad_pcb at root, found ${#pcbs[@]}" >&2; exit 1; }
   pcb="${pcbs[0]}"
+  sha="$(git -C "$repo" rev-parse HEAD)"
   kicad-cli pcb export step --subst-models --force -o "$out/$m.step" "$pcb" >&2
+  rows["$m"]="| $m | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | |"
   if [ "$m" = "DeviceTester" ]; then
     kicad-cli pcb export step --subst-models --force --variant Slot --no-dnp -o "$out/$m-slot.step" "$pcb" >&2
+    rows["$m-slot"]="| $m-slot | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | variant Slot, --no-dnp |"
   fi
-  sha="$(git -C "$repo" rev-parse HEAD)"
-  rows+="| $m | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv |"$'\n'
 done
 
 {
   echo "# PCB STEP sources"
   echo
-  echo "| module | repo | commit | file | kicad-cli version |"
-  echo "|---|---|---|---|---|"
-  printf '%s' "$rows"
-} > "$out/SOURCES.md"
+  echo "| module | repo | commit | file | kicad-cli version | note |"
+  echo "|---|---|---|---|---|---|"
+  for k in BusBoard PowerBoard CM4Carrier FMTransceiver DeviceTester DeviceTester-slot; do
+    [ -n "${rows[$k]:-}" ] && echo "${rows[$k]}"
+  done
+  # any other (unknown) keys from an existing file
+  for k in "${!rows[@]}"; do
+    case "$k" in BusBoard|PowerBoard|CM4Carrier|FMTransceiver|DeviceTester|DeviceTester-slot) ;; *) echo "${rows[$k]}" ;; esac
+  done
+} > "$sf.tmp" && mv "$sf.tmp" "$sf"
