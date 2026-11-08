@@ -26,7 +26,8 @@ class Expect:
 
 EXPECTED = {
     "desktop/parts/leiste.sc": Expect(3419.76, (-68, -4.25, 0), (68, 4.25, 3)),
-    "desktop/parts/deckplatte.sc": Expect(39783.31, (-58.5, -55, 0), (58.5, 55, 3.6)),
+    # plate 38513.53 + branding logo outline 855.83 mm^2 (80 mm wide) x logo_h 0.6
+    "desktop/parts/deckplatte.sc": Expect(38513.53 + 855.83 * 0.6, (-58.5, -55, 0), (58.5, 55, 3.6)),
     "desktop/parts/grundgestell-gespiegelt.sc":
         Expect(97892.06, (-68, -60, 0), (68, 60, 20), com_x=1.957),
     "desktop/parts/grundgestell.sc":
