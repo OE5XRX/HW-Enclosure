@@ -19,7 +19,7 @@ class Expect:
     bbox_min: tuple
     bbox_max: tuple
     com_x: float | None = None
-    tol_vol: float = 0.5  # percent of volume
+    tol_vol: float = 0.5  # mm^3, absolute
     tol_len: float = 0.05  # mm, bbox
     tol_com: float = 0.05  # mm
 
@@ -44,8 +44,8 @@ def compare(exp, body, timeline):
         if f.get("rolled_back"):
             problems.append(f"rolled_back: {f.get('name')}")
     vol = body["volume_mm3"]
-    if abs(vol - exp.volume) > exp.volume * exp.tol_vol / 100:
-        problems.append(f"volume {vol:.2f} != {exp.volume} (+-{exp.tol_vol}%)")
+    if abs(vol - exp.volume) > exp.tol_vol:
+        problems.append(f"volume {vol:.2f} != {exp.volume:.2f} (+-{exp.tol_vol} mm^3)")
     for label, got, want in (("bbox_min", body["bbox"]["min"], exp.bbox_min),
                              ("bbox_max", body["bbox"]["max"], exp.bbox_max)):
         if any(abs(g - w) > exp.tol_len for g, w in zip(got, want)):
