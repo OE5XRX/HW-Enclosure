@@ -1,0 +1,1349 @@
+{
+ "design": "desktop/station.sc",
+ "thresholds": {
+  "collision_mm3": 0.01,
+  "hole_offset": 0.1,
+  "pin_offset": 0.15,
+  "mating": 0.2
+ },
+ "A_groove": {
+  "status": "pass",
+  "modules": [
+   {
+    "module": "Slot1-PowerBoard",
+    "board_x": [
+     -57.121,
+     -55.605
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      -57.5,
+      -54.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -56.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      -57.5,
+      -54.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -56.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   },
+   {
+    "module": "Slot2-CM4Carrier",
+    "board_x": [
+     -37.121,
+     -35.605
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      -37.5,
+      -34.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -36.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      -37.5,
+      -34.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -36.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   },
+   {
+    "module": "Slot3-FMTransceiver",
+    "board_x": [
+     -17.121,
+     -15.605
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      -17.5,
+      -14.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -16.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      -17.5,
+      -14.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": -16.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   },
+   {
+    "module": "Slot4-FMTransceiver",
+    "board_x": [
+     2.879,
+     4.395
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      2.5,
+      5.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 4.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      2.5,
+      5.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 4.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   },
+   {
+    "module": "Slot5-FMTransceiver",
+    "board_x": [
+     22.879,
+     24.395
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      22.5,
+      25.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 24.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      22.5,
+      25.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 24.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   },
+   {
+    "module": "Slot6-FMTransceiver",
+    "board_x": [
+     42.879,
+     44.395
+    ],
+    "board_y": [
+     -42.374,
+     57.626
+    ],
+    "board_z": [
+     5.0,
+     105.0
+    ],
+    "thickness": 1.516,
+    "bottom": {
+     "walls_x": [
+      42.5,
+      45.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 44.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 4.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    },
+    "top": {
+     "walls_x": [
+      42.5,
+      45.5
+     ],
+     "groove_width": 3.0,
+     "groove_centre_x": 44.0,
+     "board_centre_offset": -0.363,
+     "clear_low": 0.379,
+     "clear_high": 1.105,
+     "floor_z": 105.5,
+     "floor_gap": 0.5,
+     "engagement": 3.5,
+     "groove_y": [
+      -42.5,
+      60.0
+     ],
+     "board_inside_groove_y": true,
+     "pass": true
+    }
+   }
+  ]
+ },
+ "B_connector": {
+  "status": "warn",
+  "slots": [
+   {
+    "module": "Slot1-PowerBoard",
+    "header_b_row_x": -50.0,
+    "socket": "PCN10C-20S-2.54DS",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   },
+   {
+    "module": "Slot2-CM4Carrier",
+    "header_b_row_x": -30.0,
+    "socket": "PCN10C-20S-2.54DS (2)",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   },
+   {
+    "module": "Slot3-FMTransceiver",
+    "header_b_row_x": -10.0,
+    "socket": "PCN10C-20S-2.54DS (3)",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   },
+   {
+    "module": "Slot4-FMTransceiver",
+    "header_b_row_x": 10.0,
+    "socket": "PCN10C-20S-2.54DS (4)",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   },
+   {
+    "module": "Slot5-FMTransceiver",
+    "header_b_row_x": 30.0,
+    "socket": "PCN10C-20S-2.54DS (5)",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   },
+   {
+    "module": "Slot6-FMTransceiver",
+    "header_b_row_x": 50.0,
+    "socket": "PCN10C-20S-2.54DS (6)",
+    "pins_found": 20,
+    "pins_in_cavity": 20,
+    "max_abs_dx": 0.03,
+    "max_abs_dz": 0.09,
+    "min_side_gap": 0.07,
+    "socket_face_y": -48.8,
+    "header_housing_top_y": -48.8,
+    "mating_face_gap": 0.0,
+    "header_top_y": -42.4,
+    "socket_stop_y": -42.5,
+    "axial_interference": 0.1,
+    "overlap_mm3": 4.129,
+    "status": "warn"
+   }
+  ]
+ },
+ "C_holes": {
+  "busboard_vs_pockets": {
+   "holes": 12,
+   "pockets": 12,
+   "max_offset": 0.0,
+   "pairs": [
+    {
+     "hole_xz": [
+      -50.0,
+      10.0
+     ],
+     "pocket_xz": [
+      -50.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -50.0,
+      100.0
+     ],
+     "pocket_xz": [
+      -50.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -30.0,
+      10.0
+     ],
+     "pocket_xz": [
+      -30.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -30.0,
+      100.0
+     ],
+     "pocket_xz": [
+      -30.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -10.0,
+      10.0
+     ],
+     "pocket_xz": [
+      -10.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -10.0,
+      100.0
+     ],
+     "pocket_xz": [
+      -10.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      10.0,
+      10.0
+     ],
+     "pocket_xz": [
+      10.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      10.0,
+      100.0
+     ],
+     "pocket_xz": [
+      10.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      30.0,
+      10.0
+     ],
+     "pocket_xz": [
+      30.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      30.0,
+      100.0
+     ],
+     "pocket_xz": [
+      30.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      50.0,
+      10.0
+     ],
+     "pocket_xz": [
+      50.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      50.0,
+      100.0
+     ],
+     "pocket_xz": [
+      50.0,
+      100.0
+     ],
+     "offset": 0.0
+    }
+   ],
+   "status": "pass",
+   "board_y": [
+    -55.601,
+    -54.085
+   ],
+   "gap_to_back_face_y-54": 0.085
+  },
+  "other_hole_patterns": {
+   "Deckplatte-links": [
+    {
+     "hole_yz": [
+      55.0,
+      4.5
+     ],
+     "bore_yz": [
+      55.0,
+      4.5
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_yz": [
+      54.0,
+      105.5
+     ],
+     "bore_yz": [
+      55.0,
+      105.5
+     ],
+     "offset": 1.0
+    },
+    {
+     "hole_yz": [
+      -49.0,
+      10.0
+     ],
+     "bore_yz": [
+      -49.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_yz": [
+      -49.0,
+      100.0
+     ],
+     "bore_yz": [
+      -49.0,
+      100.0
+     ],
+     "offset": 0.0
+    }
+   ],
+   "Deckplatte-rechts": [
+    {
+     "hole_yz": [
+      55.0,
+      105.5
+     ],
+     "bore_yz": [
+      55.0,
+      105.5
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_yz": [
+      54.0,
+      4.5
+     ],
+     "bore_yz": [
+      55.0,
+      4.5
+     ],
+     "offset": 1.0
+    },
+    {
+     "hole_yz": [
+      -49.0,
+      100.0
+     ],
+     "bore_yz": [
+      -49.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_yz": [
+      -49.0,
+      10.0
+     ],
+     "bore_yz": [
+      -49.0,
+      10.0
+     ],
+     "offset": 0.0
+    }
+   ],
+   "Leiste-1": [
+    {
+     "hole_xz": [
+      -50.0,
+      4.5
+     ],
+     "bore_xz": [
+      -50.0,
+      4.5
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      50.0,
+      4.5
+     ],
+     "bore_xz": [
+      50.0,
+      4.5
+     ],
+     "offset": 0.0
+    }
+   ],
+   "Leiste-2": [
+    {
+     "hole_xz": [
+      50.0,
+      105.5
+     ],
+     "bore_xz": [
+      50.0,
+      105.5
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -50.0,
+      105.5
+     ],
+     "bore_xz": [
+      -50.0,
+      105.5
+     ],
+     "offset": 0.0
+    }
+   ],
+   "Leiste-3": [
+    {
+     "hole_xz": [
+      50.0,
+      10.0
+     ],
+     "busboard_hole_xz": [
+      50.0,
+      10.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      -50.0,
+      10.0
+     ],
+     "busboard_hole_xz": [
+      -50.0,
+      10.0
+     ],
+     "offset": 0.0
+    }
+   ],
+   "Leiste-4": [
+    {
+     "hole_xz": [
+      -50.0,
+      100.0
+     ],
+     "busboard_hole_xz": [
+      -50.0,
+      100.0
+     ],
+     "offset": 0.0
+    },
+    {
+     "hole_xz": [
+      50.0,
+      100.0
+     ],
+     "busboard_hole_xz": [
+      50.0,
+      100.0
+     ],
+     "offset": 0.0
+    }
+   ]
+  },
+  "status": "pass"
+ },
+ "interference": {
+  "seconds": 0.9,
+  "bodies": 665,
+  "pairs_checked": 47,
+  "pairs_pruned": 169540,
+  "unchecked": [],
+  "collisions": [
+   {
+    "a": "PCN10C-20S-2.54DS (6)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:2/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot6-FMTransceiver",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      44.68,
+      -42.5,
+      38.97
+     ],
+     [
+      52.78,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     49.18,
+     -42.451,
+     55.019
+    ]
+   },
+   {
+    "a": "PCN10C-20S-2.54DS (5)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:5/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot5-FMTransceiver",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      24.68,
+      -42.5,
+      38.97
+     ],
+     [
+      32.78,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     29.18,
+     -42.451,
+     55.019
+    ]
+   },
+   {
+    "a": "PCN10C-20S-2.54DS (4)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:6/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot4-FMTransceiver",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      4.68,
+      -42.5,
+      38.97
+     ],
+     [
+      12.78,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     9.18,
+     -42.451,
+     55.019
+    ]
+   },
+   {
+    "a": "PCN10C-20S-2.54DS (3)",
+    "b": "PCN10-20P-2.54DSA",
+    "occ_a": "Slot3-FMTransceiver",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      -15.32,
+      -42.5,
+      38.97
+     ],
+     [
+      -7.22,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     -10.82,
+     -42.451,
+     55.019
+    ]
+   },
+   {
+    "a": "PCN10C-20S-2.54DS (2)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:3/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot2-CM4Carrier",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      -35.32,
+      -42.5,
+      38.97
+     ],
+     [
+      -27.22,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     -30.82,
+     -42.451,
+     55.019
+    ]
+   },
+   {
+    "a": "PCN10C-20S-2.54DS",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:4/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot1-PowerBoard",
+    "occ_b": "BusBoard",
+    "volume_mm3": 4.129,
+    "bbox": [
+     [
+      -55.32,
+      -42.5,
+      38.97
+     ],
+     [
+      -47.22,
+      -42.4,
+      71.07
+     ]
+    ],
+    "center": [
+     -50.82,
+     -42.451,
+     55.019
+    ]
+   }
+  ],
+  "touching": [
+   {
+    "a": "Grundgestell",
+    "b": "deckplatte",
+    "occ_a": "Gestell",
+    "occ_b": "Deckplatte-links",
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     60.0,
+     0.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "deckplatte (2)",
+    "occ_a": "Gestell",
+    "occ_b": "Deckplatte-rechts",
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -54.0,
+     0.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "leiste",
+    "occ_a": "Gestell",
+    "occ_b": "Leiste-1",
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     60.0,
+     0.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "BusBoard_PCB",
+    "occ_a": "Gestell",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.0,
+    "at": [
+     57.366,
+     -55.601,
+     5.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "deckplatte",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Deckplatte-links",
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -54.0,
+     110.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "deckplatte (2)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Deckplatte-rechts",
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -54.0,
+     110.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "leiste (2)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Leiste-2",
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     60.0,
+     110.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "BusBoard_PCB",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.0,
+    "at": [
+     -60.0,
+     -54.085,
+     105.0
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "leiste",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Leiste-1",
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     60.0,
+     0.0
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "leiste (2)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Leiste-2",
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     60.0,
+     110.0
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "leiste",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Leiste-1",
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     60.0,
+     0.0
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "leiste (2)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Leiste-2",
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     60.0,
+     110.0
+    ]
+   },
+   {
+    "a": "leiste (3)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Leiste-3",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.0,
+    "at": [
+     57.366,
+     -55.601,
+     14.0
+    ]
+   },
+   {
+    "a": "leiste (4)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Leiste-4",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.0,
+    "at": [
+     57.366,
+     -55.601,
+     96.216
+    ]
+   }
+  ],
+  "near_under_0.2mm": [
+   {
+    "a": "PowerBoard_PCB",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:4/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot1-PowerBoard",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     -55.605,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "FMTransceiver_PCB (3)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:5/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot5-FMTransceiver",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     24.395,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "FMTransceiver_PCB (2)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:6/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot4-FMTransceiver",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     4.395,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "FMTransceiver_PCB",
+    "b": "PCN10-20P-2.54DSA",
+    "occ_a": "Slot3-FMTransceiver",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     -15.605,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "FMTransceiver_PCB (4)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:2/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot6-FMTransceiver",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     44.395,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "CM4Carrier_PCB",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:3/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot2-CM4Carrier",
+    "occ_b": "BusBoard",
+    "distance_mm": 0.026,
+    "at": [
+     -35.605,
+     -42.374,
+     71.07
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "PowerBoard_PCB",
+    "occ_a": "Gestell",
+    "occ_b": "Slot1-PowerBoard",
+    "distance_mm": 0.126,
+    "at": [
+     -56.894,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "PowerBoard_PCB",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot1-PowerBoard",
+    "distance_mm": 0.126,
+    "at": [
+     -55.832,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_PCB (4)",
+    "occ_a": "Gestell",
+    "occ_b": "Slot6-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     43.106,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_PCB (3)",
+    "occ_a": "Gestell",
+    "occ_b": "Slot5-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     23.106,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_PCB (2)",
+    "occ_a": "Gestell",
+    "occ_b": "Slot4-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     3.106,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_PCB",
+    "occ_a": "Gestell",
+    "occ_b": "Slot3-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     -16.894,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "CM4Carrier_PCB",
+    "occ_a": "Gestell",
+    "occ_b": "Slot2-CM4Carrier",
+    "distance_mm": 0.126,
+    "at": [
+     -37.121,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_PCB (4)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot6-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     44.168,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_PCB (3)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot5-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     24.168,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_PCB (2)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot4-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     4.168,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_PCB",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot3-FMTransceiver",
+    "distance_mm": 0.126,
+    "at": [
+     -15.832,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "CM4Carrier_PCB",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot2-CM4Carrier",
+    "distance_mm": 0.126,
+    "at": [
+     -37.121,
+     -42.5,
+     90.0
+    ]
+   }
+  ]
+ },
+ "images": {
+  "iso_front": "reference/img/station-front-iso.png",
+  "right_side": "reference/img/station-right-side.png",
+  "section_xz_y0": "reference/img/section-slot2-grooves.png",
+  "section_xy_connector": "reference/img/section-slot2-connector.png",
+  "section_yz_pinrow": "reference/img/section-slot2-pinrow.png"
+ }
+}
