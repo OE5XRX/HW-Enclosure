@@ -29,6 +29,8 @@ EXPECTED = {
     "desktop/parts/deckplatte.sc": Expect(39783.31, (-58.5, -55, 0), (58.5, 55, 3.6)),
     "desktop/parts/grundgestell-gespiegelt.sc":
         Expect(97892.06, (-68, -60, 0), (68, 60, 20), com_x=1.957),
+    "desktop/parts/grundgestell.sc":
+        Expect(97892.06, (-68, -60, 0), (68, 60, 20), com_x=-1.957),
 }
 
 
