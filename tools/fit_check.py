@@ -23,8 +23,13 @@ inspect.clearance, inspect.section (view state) and screenshots are used. If a
 different design is open it must be clean; station.sc is then opened.
 
 Writes reference/fit-check.json (default) and, unless --no-images, the
-screenshots under reference/img/. Exit 0 if checks A, B and C do not fail
-(a check may pass with a warning), 1 if any fails, 2 if the app is unusable.
+screenshots under reference/img/. Exit 0 only if checks A, B and C all
+"pass"; 1 if any is "warn" or "fail"; 2 if the app is unusable.
+
+Board thickness: the KiCad STEP board bodies are ~1.516 thick (core without
+copper/mask), while the component plane sits at 1.6012 above the underside.
+Groove clearances use the nominal 1.6012 board (verdict values); the body
+values are reported as *_body for reference.
 """
 import json
 import math
@@ -53,6 +58,7 @@ COLLISION_MM3 = 0.01   # overlap above this is a collision
 HOLE_TOL = 0.1         # mm, hole axis offset that still passes
 PIN_TOL = 0.15         # mm, pin-to-cavity centre offset that still passes
 MATE_TOL = 0.2         # mm, axial interference / mating gap that still passes
+BOARD_T = 1.6012       # mm, underside to component plane of the KiCad STEPs
 
 
 # ---------------------------------------------------------------- app access
@@ -181,7 +187,11 @@ def check_grooves(props, topo):
         pcb = next(b for b in props[m]["bodies"] if b["name"].split(" (")[0].endswith("_PCB"))
         lo, hi = bbox(pcb)
         row = {"module": m, "board_x": [r3(lo[0]), r3(hi[0])], "board_y": [r3(lo[1]), r3(hi[1])],
-               "board_z": [r3(lo[2]), r3(hi[2])], "thickness": r3(hi[0] - lo[0])}
+               "board_z": [r3(lo[2]), r3(hi[2])], "thickness_body": r3(hi[0] - lo[0]),
+               "thickness_nominal": BOARD_T}
+        # underside = low x face (component side +X); real board ends at the
+        # component plane, the STEP body ~0.085 earlier (model artefact)
+        top = lo[0] + BOARD_T
         for key in FRAMES:
             # groove = the wall pair (normal +X low wall, -X high wall) around the board
             lw = max((w for w in walls[key] if w[1] == 1 and w[0] <= lo[0] + 1e-6), key=lambda w: w[0])
@@ -197,8 +207,9 @@ def check_grooves(props, topo):
                 engage = hi[2] - (lw[2][2] - (lw[3] / gl) / 2)
             g = {"walls_x": [r3(lw[0]), r3(hw[0])], "groove_width": r3(hw[0] - lw[0]),
                  "groove_centre_x": r3((lw[0] + hw[0]) / 2),
-                 "board_centre_offset": r3((lo[0] + hi[0]) / 2 - (lw[0] + hw[0]) / 2),
-                 "clear_low": r3(lo[0] - lw[0]), "clear_high": r3(hw[0] - hi[0]),
+                 "board_centre_offset": r3((lo[0] + top) / 2 - (lw[0] + hw[0]) / 2),
+                 "clear_low": r3(lo[0] - lw[0]), "clear_high": r3(hw[0] - top),
+                 "clear_high_body": r3(hw[0] - hi[0]),
                  "floor_z": r3(fl[0]), "floor_gap": r3(floor_gap), "engagement": r3(engage),
                  "groove_y": [r3(gy[0]), r3(gy[1])],
                  "board_inside_groove_y": gy[0] <= lo[1] and hi[1] <= gy[1]}
@@ -366,7 +377,10 @@ def collisions(sc, props, log):
             e["overlap_mm3"] = o["overlap_mm3"]
         (touch if o["distance_mm"] <= 1e-6 else near).append(e)
     return {"seconds": round(secs, 1), "bodies": r.get("bodies"),
-            "pairs_checked": r.get("pairs_checked"), "pairs_pruned": r.get("pairs_pruned"),
+            "pairs_checked": r.get("pairs_checked"), "pairs_reused": r.get("pairs_reused"),
+            "pairs_pruned": r.get("pairs_pruned"),
+            "note": "pairs_checked/pairs_reused/seconds describe this run; a run in a fresh "
+                    "app session (no cache) took 453 s for the same 47 exact pairs",
             "unchecked": r.get("unchecked", []), "collisions": ov, "touching": touch,
             "near_under_0.2mm": near}
 
@@ -454,7 +468,7 @@ def main(argv):
     for o in col["collisions"]:
         print(f"  {o['occ_a']} / {o['occ_b']}: {o['a']} x {o['b']} {o['volume_mm3']} mm^3")
     print(f"wrote {os.path.relpath(out_json, ROOT)}")
-    return 0 if "fail" not in (a, b, c) else 1
+    return 0 if (a, b, c) == ("pass", "pass", "pass") else 1
 
 
 if __name__ == "__main__":
