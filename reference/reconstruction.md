@@ -7,19 +7,23 @@ nachgebaut. Die G-Codes selbst liegen nicht im Repo.
 ## Methode
 
 1. Aus den G-Code-Pfaden pro Schicht Außenwand-Konturen und Lochkreise entnommen.
-2. **Außenwand-Linienbreite 0,4 mm** (`outer_wall_line_width = 100 %` bei 0,4-mm-Düse): Der Weg der
-   Außenwand liegt eine halbe Linienbreite (0,2 mm) innerhalb der Teilkante. Gemessene Pfadmaße
-   wurden um diesen Betrag nach außen korrigiert.
-3. **`xy_hole_compensation` 0,27 mm:** Der Slicer korrigiert Lochmaße um 0,27 mm; diese Verschiebung
-   wurde bei den gemessenen Lochdurchmessern berücksichtigt, damit die Modellmaße (z. B. Ø 3,2) und
-   nicht die Druckpfadmaße im Modell stehen.
+2. **Außenwand-Linienbreite 0,4 mm** (`outer_wall_line_width = 100 %` bei 0,4-mm-Düse): Die Pfade
+   sind Linienmitten. Die Materialkante liegt Pfad ± 0,2 mm (außen: nach außen; bei Löchern liegen die
+   Pfade im Material, die Lochkante also 0,2 mm vom Pfad in das Loch hinein).
+3. **`xy_hole_compensation` 0,27 mm** pro Seite: Modell-Lochmaß = Pfadmaß − 0,4 − 2·0,27 (z. B. Pfad
+   Ø 4,12 → Ø 3,2). Das gilt für Lochkonturen in der Druckebene, auch für die rechteckigen
+   Durchbrüche 10 × 92,5, nicht für Kerben/Nuten der Außenkontur und nicht für horizontale Bohrungen.
 4. **Schichtraster:** erste Schicht 0,15 mm, danach 0,2 mm, also Schichtoberkanten bei
-   0,15 + n·0,2. Höhen im G-Code sind Schichtoberkanten.
-5. **Layer-Mitte-Regel für Höhen:** Ein Merkmal (Absatz, Tiefe) beginnt oder endet in einer Schicht,
-   nicht dazwischen. Die wahre Höhe liegt in der Schichtmitte, bezogen auf das Raster; gerundet auf
-   das nächste plausible Konstruktionsmaß (z. B. 5, 8,5, 11,5, 20).
-6. Koordinaten wurden um den Druckbett-Versatz bereinigt (G-Code-Koordinaten sind abgezogen), damit
-   die Teile im eigenen Ursprung liegen.
+   0,15 + n·0,2.
+5. **Layer-Mitte-Regel für Höhen:** Eine Schicht wird massiv gedruckt, wenn die Geometrie ihre
+   Mittenhöhe überdeckt. Eine Höhengrenze liegt daher irgendwo zwischen der Mittenhöhe der letzten
+   massiven und der ersten leeren Schicht (ein Intervall von 0,2 mm, bei der ersten Schicht 0,15 mm).
+   Die Werte wurden anschließend auf plausible Konstruktionsmaße gerundet (z. B. gedruckte Oberkante
+   2,95 → 3,0; Deck 8,5; Nutgrund 4,5; Gesamthöhe 20).
+6. Vom G-Code-Objektmittelpunkt (100, 100) wurde abgezogen, damit die Teile im eigenen Ursprung
+   liegen. Neben den normalen Wänden wurden auch "Overhang wall"-Pfade ausgewertet.
+7. **Kontrolle:** Die Modellvolumina stimmen mit analytisch berechneten Werten überein; Modellschnitte
+   wurden über die G-Code-Pfade gelegt.
 
 ## Gemessen und gewählt
 
@@ -38,7 +42,7 @@ gerundet, "gemessen" direkt aus dem G-Code abgeleitet.
 | | vorne 2 Bohrungen Ø 5 × 5 + Ø 3,2 auf 9 Tiefe (x = ±50, z = 4,5) |
 | **Grundgestell (normal)** | reines Spiegelbild des gespiegelten (Spiegelebene YZ durch die Mitte der 136-mm-Länge, Rückwand bleibt hinten); vom Benutzer bestätigt: keine weiteren Unterschiede |
 
-Auffällig ist die Asymmetrie der Deckplatte (Loch (9 | 105,5) gegenüber (8 | 100)), die zur offenen
+Auffällig ist die Asymmetrie der Deckplatte (Loch (9 | 105,5) gegenüber (8 | 4,5)), die zur offenen
 1,0-mm-Frage in [assembly.md](assembly.md) führt. Ob das ein Messfehler, ein Konstruktionsfehler oder
 Absicht ist, lässt sich aus dem G-Code allein nicht entscheiden.
 

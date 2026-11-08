@@ -46,7 +46,7 @@ Aus den Original-G-Codes (Klipper-Drucker):
 | Stützen | keine |
 | `xy_hole_compensation` | 0,27 mm |
 
-Die Teile werden so gedruckt, wie sie modelliert sind; STL, 3MF und G-Code gehören nicht ins Repo
+STL, 3MF und G-Code gehören nicht ins Repo
 (`.gitignore`). Aus den `.step`-Dateien lassen sich STLs beliebig neu erzeugen.
 
 ## Hardware
@@ -66,7 +66,7 @@ Kurz: Alle 6 Platinen sitzen in den Nuten, alle 12 BusBoard-Löcher fluchten mit
 Stecker stecken (alle 20 Stifte je Slot in ihren Kammern). Offen:
 
 - **Deckplatten-Loch um 1,0 mm daneben:** Das Loch (9 | 105,5) der Deckplatte liegt 1,0 mm neben der
-  Gestell-Bohrung. Entweder ist die nachgebaute Position falsch (8 | 105,5) oder die echte
+  Gestell-Bohrung. Praktisch: Dort geht so keine M3-Schraube durch (nur ca. 2,2 mm Durchgang, fit-check Befund 2). Entweder ist die nachgebaute Position falsch (8 | 105,5) oder die echte
   Bohrung im oberen Gestell sitzt bei y = 54 (assembly.md, Frage 2).
 - **Logo rechts steht auf dem Kopf:** Das Lochbild der Platte ist nicht symmetrisch; auf der +X-Seite
   muss sie um 180° gedreht werden (assembly.md, Frage 3). Eine gespiegelte Platte wäre nötig.
