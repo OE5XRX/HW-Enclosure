@@ -1,0 +1,8 @@
+.superpowers/
+gcode/
+*.stl
+*.3mf
+*.gcode
+.~*.lock
+__pycache__/
+*.kicad_prl
