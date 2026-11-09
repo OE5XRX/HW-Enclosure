@@ -11,7 +11,11 @@ the placed geometry (world coordinates, as SolidCraft reports them):
   B  connector: every module socket (PCN10C-20S) mates its BusBoard header
                 (PCN10-20P): pin-in-cavity offsets and side gaps for all 20
                 pins, mating-face gap, axial interference of the models;
-  C  holes:     the 12 BusBoard holes against the 12 back pockets.
+  C  holes:     the 12 BusBoard holes against the 12 back pockets;
+  D  fasteners: axis of all 48 screws / heat-set inserts against their pockets
+                and the plate / strip / BusBoard holes, plus every overlap of a
+                fastener with another part (informational, not one of the three
+                questions: "warn" on any axis offset > 0.1 or fastener overlap).
 
 Also: hole patterns of the cover plates and strips against their bores, and an
 interference / clearance run over all placed bodies (inspect.clearance; pairs
@@ -23,7 +27,7 @@ inspect.clearance, inspect.section (view state) and screenshots are used. If a
 different design is open it must be clean; station.sc is then opened.
 
 Writes reference/fit-check.json (default) and, unless --no-images, the
-screenshots under reference/img/. Exit 0 only if checks A, B and C all
+screenshots under reference/img/. Exit 0 only if checks A, B, C and D all
 "pass"; 1 if any is "warn" or "fail"; 2 if the app is unusable (not running:
 start `solidcraft --control 7878`; solidcraft-cli missing) or on an unexpected
 error. Usage: fit_check.py [--no-images] [--json PATH]
@@ -43,14 +47,17 @@ import time
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from sc_mcp import SolidCraft, SolidCraftError  # noqa: E402
+from check_parts import fasteners  # noqa: E402
 
 STATION = os.path.join(ROOT, "desktop", "station.sc")
 IMG = os.path.join(ROOT, "reference", "img")
 
 OCCS = ["Gestell", "Gestell-gespiegelt", "Deckplatte-links", "Deckplatte-rechts",
-        "Leiste-1", "Leiste-2", "Leiste-3", "Leiste-4", "BusBoard",
+        "Leiste-1", "Leiste-2", "BusBoard",
         "Slot1-PowerBoard", "Slot2-CM4Carrier", "Slot3-FMTransceiver",
         "Slot4-FMTransceiver", "Slot5-FMTransceiver", "Slot6-FMTransceiver"]
+FASTENERS = [f[0] for f in fasteners()]   # 24 inserts + 24 screws (names from check_parts)
+OCCS += FASTENERS
 MODULES = [o for o in OCCS if o.startswith("Slot")]
 # Slot k mates header Jx01 whose b row sits at x = -50 + 20 (k-1) (assembly.md E3).
 HEADER_B_X = {m: -50.0 + 20.0 * i for i, m in enumerate(MODULES)}
@@ -60,7 +67,7 @@ COLLISION_MM3 = 0.01   # overlap above this is a collision
 HOLE_TOL = 0.1         # mm, hole axis offset that still passes
 PIN_TOL = 0.15         # mm, pin-to-cavity centre offset that still passes
 MATE_TOL = 0.2         # mm, axial interference / mating gap that still passes
-EXECUTE_TIMEOUT_S = 900  # fresh clearance run takes ~453 s
+EXECUTE_TIMEOUT_S = 4 * 3600  # a fresh clearance run takes up to ~2 h (see reference/fit-check.md)
 BOARD_T = 1.6012       # mm, underside to component plane of the KiCad STEPs
 
 
@@ -339,12 +346,68 @@ def check_holes(topo, props):
         m = match(axis_points(cylinders(topo[body], 1.6), 1), axis_points(front, 1))
         extra[occ] = [{"hole_xz": [r3(v) for v in h], "bore_xz": [r3(v) for v in t], "offset": r3(o)}
                       for h, t, o in m]
-    for occ, body in (("Leiste-3", "leiste (3)"), ("Leiste-4", "leiste (4)")):
-        m = match(axis_points(cylinders(topo[body], 1.6), 1), bus)
-        extra[occ] = [{"hole_xz": [r3(v) for v in h], "busboard_hole_xz": [r3(v) for v in t],
-                       "offset": r3(o)} for h, t, o in m]
     res["other_hole_patterns"] = extra
+    res["fasteners"] = check_fasteners(topo, props, side_x, front, bus)
     return res
+
+
+def check_fasteners(topo, props, side_x, front, bus):
+    """D: axis of every screw and insert against the bore / pocket it sits in and
+    against the hole of the part it passes through (plate, strip, BusBoard)."""
+    pockets_bus = []
+    for f in FRAMES.values():
+        pockets_bus += [c for c in cylinders(topo[f], 2.5)
+                        if abs(abs(c["axis"][1]) - 1) < 1e-6 and abs(c["origin"][1] + 54) < 1e-3]
+    pockets_bus = axis_points(pockets_bus, 1)
+    side_pockets = {k: [] for k in ("left", "right")}
+    front_pockets = []
+    for f in FRAMES.values():
+        for c in cylinders(topo[f], 2.5):
+            if abs(abs(c["axis"][0]) - 1) < 1e-6:
+                side_pockets["left" if c["origin"][0] < 0 else "right"].append(c)
+            elif abs(abs(c["axis"][1]) - 1) < 1e-6 and c["origin"][1] > 0:
+                front_pockets.append(c)
+    plate_holes = {"left": axis_points(cylinders(topo["deckplatte"], 1.6), 0),
+                   "right": axis_points(cylinders(topo["deckplatte (2)"], 1.6), 0)}
+    strip_holes = axis_points(cylinders(topo["leiste"], 1.6), 1) + \
+        axis_points(cylinders(topo["leiste (2)"], 1.6), 1)
+    rows, worst = [], 0.0
+    groups = {}
+    for name in FASTENERS:
+        kind = "Mutter" if name.startswith("Mutter") else "Schraube"
+        part = name.split("-")[1]  # Platte | Leiste | Bus
+        bb = props[name]["total"]["bbox"]
+        c = [(a + b) / 2 for a, b in zip(bb["min"], bb["max"])]
+        if part == "Platte":
+            axis, uv = 0, (c[1], c[2])
+            side = "left" if "-L" in name else "right"
+            seat = axis_points(side_pockets[side], 0)
+            thru = plate_holes[side] if kind == "Schraube" else None
+        elif part == "Leiste":
+            axis, uv = 1, (c[0], c[2])
+            seat = axis_points(front_pockets, 1)
+            thru = strip_holes if kind == "Schraube" else None
+        else:
+            axis, uv = 1, (c[0], c[2])
+            seat = pockets_bus
+            thru = bus if kind == "Schraube" else None
+        seat_off = min(math.dist(uv, q) for q in seat)
+        thru_off = min(math.dist(uv, q) for q in thru) if thru else None
+        row = {"occurrence": name, "kind": kind, "axis_uv": [r3(v) for v in uv],
+               "bbox_min": [r3(v) for v in bb["min"]], "bbox_max": [r3(v) for v in bb["max"]],
+               "offset_to_pocket": r3(seat_off),
+               "offset_to_part_hole": None if thru_off is None else r3(thru_off)}
+        rows.append(row)
+        g = groups.setdefault(f"{kind}-{part}", {"count": 0, "max_offset_to_pocket": 0.0,
+                                                 "max_offset_to_part_hole": 0.0})
+        g["count"] += 1
+        g["max_offset_to_pocket"] = max(g["max_offset_to_pocket"], r3(seat_off))
+        if thru_off is not None:
+            g["max_offset_to_part_hole"] = max(g["max_offset_to_part_hole"], r3(thru_off))
+    bad = [r for r in rows if r["offset_to_pocket"] > HOLE_TOL
+           or (r["offset_to_part_hole"] or 0) > HOLE_TOL]
+    return {"status": "pass" if not bad else "warn", "count": len(rows), "groups": groups,
+            "off_target": bad, "occurrences": rows}
 
 
 def owner(name, by_name):
@@ -361,6 +424,10 @@ def collisions(sc, props, log):
     for o, p in props.items():
         for b in p["bodies"]:
             by_name.setdefault(b["name"], set()).add(o)
+    # Note: do not narrow this with `bodies`/`against` by name: bodies of several instances
+    # (e.g. the 6 BusBoard headers) share one name and only one instance would be found.
+    # The detailed PCB STEPs carry ~4700 bodies (thousands of pad / silkscreen / soldermask
+    # layers), so a fresh run takes ~107 min; re-runs reuse the cached pairs.
     t = time.time()
     r = execute(sc, "inspect.clearance",
                 {"skip_within": "component", "clearance": 0.2, "min_volume": COLLISION_MM3}, log)
@@ -371,6 +438,7 @@ def collisions(sc, props, log):
         if a == b:
             continue
         ov.append({"a": o["a"], "b": o["b"], "occ_a": a, "occ_b": b,
+                   "fastener": a in FASTENERS or b in FASTENERS,
                    "volume_mm3": round(o["volume_mm3"], 4),
                    "bbox": [[r3(v) for v in o["bbox"]["min"]], [r3(v) for v in o["bbox"]["max"]]],
                    "center": [r3(v) for v in o["center"]]})
@@ -379,6 +447,7 @@ def collisions(sc, props, log):
         if a == b:
             continue
         e = {"a": o["a"], "b": o["b"], "occ_a": a, "occ_b": b,
+             "fastener": a in FASTENERS or b in FASTENERS,
              "distance_mm": r3(o["distance_mm"]), "at": [r3(v) for v in o["from"]]}
         if o.get("overlap_mm3") is not None:
             e["overlap_mm3"] = o["overlap_mm3"]
@@ -387,7 +456,7 @@ def collisions(sc, props, log):
             "pairs_checked": r.get("pairs_checked"), "pairs_reused": r.get("pairs_reused"),
             "pairs_pruned": r.get("pairs_pruned"),
             "note": "pairs_checked/pairs_reused/seconds describe this run; a run in a fresh "
-                    "app session (no cache) took 453 s for the same 47 exact pairs",
+                    "app session (no pair cache) took ~6400 s",
             "unchecked": r.get("unchecked", []), "collisions": ov, "touching": touch,
             "near_under_0.2mm": near}
 
@@ -404,6 +473,14 @@ def images(sc):
     out["right_side"] = screenshot(sc, "station-right-side.png", width=1000, height=900,
                                    camera={"target": [0, 0, 55], "yaw": -math.pi / 2,
                                            "pitch": 0.0, "distance": 330})
+    # fastener close-ups: BusBoard back with the 12 M3x6 screws, front right corner
+    # with the plate and strip screws
+    out["busboard_back"] = screenshot(sc, "station-back-schrauben.png", width=1400, height=1000,
+                                      camera={"target": [-20, -56, 55], "yaw": 0.5,
+                                              "pitch": 0.35, "distance": 210})
+    out["corner_right"] = screenshot(sc, "station-ecke-schrauben.png", width=1400, height=1000,
+                                     camera={"target": [60, 55, 95], "yaw": math.pi + 0.8,
+                                             "pitch": 0.3, "distance": 120})
     execute(sc, "inspect.section", {"plane": "XZ", "at": 0})
     out["section_xz_y0"] = screenshot(sc, "section-slot2-grooves.png", width=1400, height=1100,
                                       camera={"target": [0, 0, 55], "yaw": math.pi,
@@ -457,7 +534,7 @@ def run(args):
         log("occurrence properties")
         props = {o: execute(sc, "occurrence.properties", {"occurrence": o + ":1"}) for o in OCCS}
         names = ["Grundgestell", "Grundgestell-gespiegelt", "deckplatte", "deckplatte (2)",
-                 "leiste", "leiste (2)", "leiste (3)", "leiste (4)", "BusBoard_PCB"]
+                 "leiste", "leiste (2)", "BusBoard_PCB"]
         topo = {n: sc.call("body_topology", {"body": n}) for n in names}
         log("interference / clearance over all bodies (takes minutes)")
         col = collisions(sc, props, log)
@@ -482,6 +559,13 @@ def run(args):
     finally:
         sc.close()
     result["C_holes"]["status"] = result["C_holes"]["busboard_vs_pockets"]["status"]
+    result["D_fasteners"] = {
+        "status": "pass", "axes": result["C_holes"]["fasteners"]["status"],
+        "collisions": [o for o in col["collisions"] if o["fastener"]],
+        "touching": [o for o in col["touching"] if o["fastener"]]}
+    if result["C_holes"]["fasteners"]["status"] != "pass" or result["D_fasteners"]["collisions"]:
+        result["D_fasteners"]["status"] = "warn"
+    d = result["D_fasteners"]["status"]
     with open(out_json, "w") as f:
         json.dump(result, f, indent=1)
         f.write("\n")
@@ -489,12 +573,15 @@ def run(args):
     print(f"A groove      {a.upper()}")
     print(f"B connector   {b.upper()}")
     print(f"C holes       {c.upper()}")
+    print(f"D fasteners   {d.upper()}  (axes {result['D_fasteners']['axes']}, "
+          f"{len(result['D_fasteners']['collisions'])} collisions, "
+          f"{len(result['D_fasteners']['touching'])} touching)")
     print(f"collisions (> {COLLISION_MM3} mm^3): {len(col['collisions'])}, "
           f"touching pairs: {len(col['touching'])}, near < 0.2 mm: {len(col['near_under_0.2mm'])}")
     for o in col["collisions"]:
         print(f"  {o['occ_a']} / {o['occ_b']}: {o['a']} x {o['b']} {o['volume_mm3']} mm^3")
     print(f"wrote {os.path.relpath(out_json, ROOT)}")
-    return 0 if (a, b, c) == ("pass", "pass", "pass") else 1
+    return 0 if (a, b, c, d) == ("pass",) * 4 else 1
 
 
 if __name__ == "__main__":

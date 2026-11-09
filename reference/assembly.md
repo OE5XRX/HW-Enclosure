@@ -26,15 +26,15 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
    (corner (9 | 105.5)) lands at y = 54.0 instead of 55.0 (residual 1.000 > 0.3). Least squares
    would give 0.25/0.75/0.25/0.25 (still > 0.3). Either the reconstructed hole (9 | 105.5) should be
    (8 | 105.5), or the real top frame's front side bores sit at y = 54. Which is it?
-3. **Logo upside down on one side.** The plate pattern is not symmetric. With the logo outward
-   and upright, it fits only the -X side. On +X the plate must be rotated 180 deg about its
-   normal, so the logo stands upside down there. Do you want a mirrored plate for the right side?
-4. **Where do the 4 strips go?** Two are certain: the front of each frame (holes x = ±50 match
-   the front bores, z 4.5/105.5, residual 0.000). Nothing else on the frames has a 100 mm 2-hole
-   pattern except the outer back pockets x = ±50 (z 10/100). This derivation therefore puts
-   strips 3/4 on the back of the BusBoard as clamping bars (screw through strip and BusBoard
-   holes H101/H106 resp. H109/H108 into the pockets). No back-side part of the BusBoard lies in
-   the strip band. **UNVERIFIED hypothesis.** Is that how they are used?
+3. **Logo (beantwortet): dieselbe Platte auf beiden Seiten.** Das Lochbild der Platte ist nicht
+   symmetrisch; auf +X muss sie um 180° um ihre Normale gedreht werden. Peter hat entschieden: Die
+   Station steht im Betrieb auf dem BusBoard (die Module stehen auf dem Bus). Das Logo wurde in
+   `deckplatte.sc` um 90° gedreht, sodass die Schrift neben dem BusBoard liegt. Mit dieser
+   Lage steht der Schriftzug auf beiden Seiten richtig, es gibt nur ein Teil, keine gespiegelte Platte.
+4. **Leisten (beantwortet): nur vorne.** Die Leisten halten nur die Module an der Front. Hinten am
+   BusBoard sitzt nichts; die Hypothese der Klemmleisten (`Leiste-3`/`-4`) ist verworfen und die
+   beiden Leisten sind aus `station.sc` entfernt. Es bleiben `Leiste-1` (unteres Gestell) und
+   `Leiste-2` (oberes Gestell). Die BusBoard-Schrauben M3×6 sitzen direkt auf der Rückseite des BusBoards.
 5. Minor: **the module position comes from the connector, not the groove.** It sits 0.318 off
    the groove centre (inside the groove's ±0.70 play, see E5). It stands 0.5 above both groove
    floors and rests on the connector. Socket opening heights (2.98/5.52 above the board) and the
@@ -56,7 +56,8 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
   back edge is at y = -42.374, 0.126 in front of the back wall. Module pin k mates header pin 11-k (net-checked),
   same row letter. Pin rows match to 0.000 in X/Z.
 - Side plates and front strips: residual 0.000, except one plate hole at 1.000 (question 2).
-- Status: **11 VERIFIED, 4 UNVERIFIED** (2 cover plates, 2 back strips).
+- Status: **11 VERIFIED, 2 UNVERIFIED** (2 cover plates, Q1/Q2). Dazu 48 Befestigungsteile (24 Einschmelzmuttern,
+  24 Schrauben), abgeleitet aus den Bohrungen (Abschnitt "Befestigung").
 
 ## Occurrence table
 
@@ -64,21 +65,19 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
 |---|---|---|---|---|---|---|
 | 1 | Gestell | `desktop/parts/grundgestell.sc` | [0, 0, 0] | none | VERIFIED | E1, E2 |
 | 2 | Gestell-gespiegelt | `desktop/parts/grundgestell-gespiegelt.sc` | [0, 0, 110] | Ry(180) | VERIFIED | E1, E2 |
-| 3 | Deckplatte-links (**left, -X**, logo upright; spec: "vorne") | `desktop/parts/deckplatte.sc` | [-68, 4.5, 55] | Rx(90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
-| 4 | Deckplatte-rechts (**right, +X**, logo upside down; spec: "hinten") | `desktop/parts/deckplatte.sc` | [68, 4.5, 55] | Rx(-90), Rz(-90) | UNVERIFIED | E6, Q1–3 |
+| 3 | Deckplatte-links (**left, -X**; spec: "vorne") | `desktop/parts/deckplatte.sc` | [-68, 4.5, 55] | Rx(90), Rz(-90) | UNVERIFIED | E6, Q1/Q2 |
+| 4 | Deckplatte-rechts (**right, +X**; spec: "hinten") | `desktop/parts/deckplatte.sc` | [68, 4.5, 55] | Rx(-90), Rz(-90) | UNVERIFIED | E6, Q1/Q2 |
 | 5 | Leiste-1 (front, bottom frame) | `desktop/parts/leiste.sc` | [0, 60, 4.25] | Rx(-90) | VERIFIED | E7 |
 | 6 | Leiste-2 (front, top frame) | `desktop/parts/leiste.sc` | [0, 60, 105.75] | Rx(-90), Ry(180) | VERIFIED | E7 |
-| 7 | Leiste-3 (back, bottom, over BusBoard) | `desktop/parts/leiste.sc` | [0, -55.6012, 9.75] | Rx(-90), Rz(180) | UNVERIFIED | E7, Q4 |
-| 8 | Leiste-4 (back, top, over BusBoard) | `desktop/parts/leiste.sc` | [0, -55.6012, 100.25] | Rx(90) | UNVERIFIED | E7, Q4 |
-| 9 | BusBoard | `pcb/BusBoard.step` | [-125.284, -55.6012, -20.396] | Rx(-90) | VERIFIED | E3, E4, E8 |
-| 10 | Slot1-PowerBoard | `pcb/PowerBoard.step` | [-57.1212, 157.194, -35.64] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
-| 11 | Slot2-CM4Carrier | `pcb/CM4Carrier.step` | [-37.1212, 150.848, -40.794] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
-| 12 | Slot3-FMTransceiver | `pcb/FMTransceiver.step` | [-17.1212, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
-| 13 | Slot4-FMTransceiver | `pcb/FMTransceiver.step` | [2.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
-| 14 | Slot5-FMTransceiver | `pcb/FMTransceiver.step` | [22.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
-| 15 | Slot6-FMTransceiver | `pcb/FMTransceiver.step` | [42.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 7 | BusBoard | `pcb/BusBoard.step` | [-125.284, -55.6012, -20.396] | Rx(-90) | VERIFIED | E3, E4, E8 |
+| 8 | Slot1-PowerBoard | `pcb/PowerBoard.step` | [-57.1212, 157.194, -35.64] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 9 | Slot2-CM4Carrier | `pcb/CM4Carrier.step` | [-37.1212, 150.848, -40.794] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 10 | Slot3-FMTransceiver | `pcb/FMTransceiver.step` | [-17.1212, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 11 | Slot4-FMTransceiver | `pcb/FMTransceiver.step` | [2.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 12 | Slot5-FMTransceiver | `pcb/FMTransceiver.step` | [22.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
+| 13 | Slot6-FMTransceiver | `pcb/FMTransceiver.step` | [42.8788, 155.543, -31.271] | Rx(-90), Rz(-90) | VERIFIED | E5, E8 |
 
-15 occurrences, matching ruling R4. Resulting axis maps (part-local → assembly):
+13 Gehäuse-/Platinen-Occurrences plus 48 Befestigungsteile (Abschnitt "Befestigung"). Resulting axis maps (part-local → assembly):
 
 | occurrence | local x → | local y → | local z → |
 |---|---|---|---|
@@ -88,8 +87,6 @@ translated by `[x, y, z]`. `Rx(-90)` means -90 deg about X, right-hand rule.
 | Deckplatte-rechts | -Y | -Z | +X (logo outward) |
 | Leiste-1 | +X | -Z | +Y |
 | Leiste-2 | -X | +Z | +Y |
-| Leiste-3 | -X | -Z | -Y |
-| Leiste-4 | +X | +Z | -Y |
 | BusBoard (STEP) | +X | -Z | +Y (F.Cu side) |
 | modules (STEP) | -Y | -Z | +X (F.Cu side) |
 
@@ -101,7 +98,6 @@ Resulting extents (checked by transforming the corners):
 | Gestell-gespiegelt | -68…68 | -60…60 | 90…110 |
 | Deckplatte left / right | -71.6…-68 / 68…71.6 (incl. 0.6 logo) | -54…63 | 0…110 |
 | Leiste-1 / -2 | -68…68 | 60…63 | 0…8.5 / 101.5…110 |
-| Leiste-3 / -4 | -68…68 | -58.601…-55.601 | 5.5…14 / 96…104.5 |
 | BusBoard (board) | -60…57.366 | -55.601…-54.000 | 5…105 |
 | module boards | X_c ± 0.80 | -42.374…57.626 | 5…105 |
 
@@ -173,7 +169,7 @@ F.Cu plane at y = -54.
 Board extents: x -60.000…57.366, z 5…105. The 1.317 off-centre of the hole pattern is to -X.
 Nothing on F.Cu besides the mounting holes lies in the wall bands (z < 20 or z > 90), so the
 board can lie flat on the wall faces. Back-side (B.Cu) parts lie at KiCad y 84…110, i.e. z 64…90.
-That is clear of the back strips' bands z 5.5…14 and 96…104.5.
+Die Schraubenköpfe der BusBoard-Befestigung (z 10 / 100) liegen davon frei.
 
 The in-plane orientation (u → +X rather than -X) is decided by E5: only this orientation mates
 pin 1 correctly *and* matches the socket row heights. The 180-deg alternative puts GND on +12V
@@ -259,12 +255,10 @@ none at 4.5/105.5.
 |---|---|---|---|---|
 | Leiste-1 front bottom | (±50, 60, 4.5) | front bores bottom frame (x ±50, y 60, z 4.5) | 0.000 | y 60…63, z 0…8.5 = deck front face |
 | Leiste-2 front top | (±50, 60, 105.5) | front bores top frame | 0.000 | y 60…63, z 101.5…110 |
-| Leiste-3 back bottom | (±50, -55.601, 10) | BusBoard H101/H106 → pockets (±50, -54, 10) | 0.000 | y -58.601…-55.601, z 5.5…14 |
-| Leiste-4 back top | (±50, -55.601, 100) | BusBoard H109/H108 → pockets (±50, -54, 100) | 0.000 | y -58.601…-55.601, z 96…104.5 |
 
 In each strip the 4.5 edge distance faces the frame's outer face (underside / top). The front
-strips close the open groove ends (grooves run to y 61) and cover the deck's front faces. The
-back strips are a hypothesis (Q4).
+strips close the open groove ends (grooves run to y 61) and cover the deck's front faces. Die
+früher angenommenen hinteren Klemmleisten (`Leiste-3`/`-4`) sind entfallen (Q4: Leisten nur vorne).
 
 ### E8 STEP origins (computed from the .kicad_pcb and the STEP text, not inserted in SolidCraft)
 
@@ -289,12 +283,30 @@ reaches x 182.65 / y -125.396.
 The DeviceTester (`DeviceTester*.step`) is not part of the station (it has a PCN10-20P header of
 its own and its socket on the opposite edge).
 
-## Screw map (what screws where)
+## Befestigung (Schrauben und Einschmelzmuttern)
 
-| bore | count | joins |
-|---|---|---|
-| back pockets Ø5 × 5, x -50+20i, z 10 (bottom) / 100 (top) | 12 | BusBoard H101–H112 (M3 from the back, through the BusBoard; at x ±50 also through Leiste-3/-4) |
-| side bores Ø5×5 + Ø3.2 at x ±68, (y -49, z 10/100), (y 55, z 4.5/105.5) | 8 | the 2 side plates, 4 screws each (holes C/D at the back, A/B at the front) |
-| front bores Ø5×5 + Ø3.2 at (x ±50, y 60, z 4.5/105.5) | 4 | Leiste-1 and Leiste-2, 2 screws each |
+Die Ø5 × 5 Taschen sind als M3-Einschmelzmuttern interpretiert (nicht gemessen). Jede Tasche bekommt
+eine Mutter (Ø5 × 5, Ø3 Bohrung), die bündig mit der Gestellfläche abschließt; die Schraube sitzt mit
+dem ganzen Schaft in der Mutter. Alle 48 Teile sind verknüpfte Occurrences von
+`desktop/parts/einschmelzmutter-m3.sc`, `schraube-m3x8.sc` und `schraube-m3x6.sc` (Schraube:
+Ursprung = Mitte der Kopfauflage, Kopf +Z, Schaft -Z; Mutter: Ursprung = Mitte der Oberseite, Körper -Z;
+Platzierungen in `tools/check_parts.py`, Funktion `fasteners()`).
 
-The modules are not screwed. They are held by the grooves (both frames) and the bus connector.
+| Teil | Anzahl | Positionen (Assembly-Koordinaten) | Länge | Lage |
+|---|---|---|---|---|
+| Einschmelzmutter M3 `Mutter-Platte-L1…4` / `-R1…4` | 8 | x = ∓68, (y 55, z 4.5), (y -49, z 10), (y 55, z 105.5), (y -49, z 100) (Nr. 1…4) | Ø5 × 5 | Oberseite bei |x| = 68, Körper nach innen bis |x| = 63 |
+| Schraube M3×8 `Schraube-Platte-L1…4` / `-R1…4` | 8 | wie oben | 8 | Kopfauflage auf der Plattenaußenseite |x| = 71, Schaft nach innen bis |x| = 63 |
+| Einschmelzmutter M3 `Mutter-Leiste-1L/1R/2L/2R` | 4 | x = ±50, z 4.5 (Leiste-1) / 105.5 (Leiste-2), Vorderfläche y = 60 | Ø5 × 5 | y 60 → 55 |
+| Schraube M3×8 `Schraube-Leiste-1L…2R` | 4 | wie oben | 8 | Kopfauflage auf der Leistenvorderseite y = 63, Schaft bis y = 55 |
+| Einschmelzmutter M3 `Mutter-Bus-1…12` | 12 | x = -50, -30, -10, 10, 30, 50 bei z = 10 (Nr. 1…6) und z = 100 (Nr. 7…12), Tasche ab y = -54 | Ø5 × 5 | y -54 → -49 |
+| Schraube M3×6 `Schraube-Bus-1…12` | 12 | wie oben | 6 | Kopfauflage auf der BusBoard-Rückseite y = -55.6012, Schaft bis y = -49.6012, Kopf nach -Y |
+
+Summe: **24 Einschmelzmuttern M3, 12 Schrauben M3×8, 12 Schrauben M3×6.** Alle Schrauben ISO 4762
+(Kopf Ø5.5 × 3, Innensechskant 2.5, Gewinde nicht modelliert). Plattenschrauben: Plattendicke 3 + Mutter
+5 = 8, die Schraube endet genau am Muttergrund. Leistenschrauben: ebenso (3 + 5). BusBoard: Platine
+1.6 + Mutter 5 = 6.6 > 6 (die Schraube sitzt 0.6 vor dem Muttergrund).
+
+Die Schrauben sitzen auf den Gestellbohrungen (nicht auf den Plattenlöchern): Das Plattenloch (9 | 105.5)
+liegt 1.0 mm daneben (Q2), die Schraube durchdringt dort die Platte (fit-check Befund 2).
+
+Die Module sind nicht verschraubt. Sie werden von den Nuten (beide Gestelle) und dem Busstecker gehalten.

@@ -8,10 +8,12 @@
 | (b) Stecken die Modul-Busstecker auf den BusBoard-Steckern? | ⚠️ | In allen 6 Slots sitzen alle 20 Stifte in ihren Buchsenkammern (Versatz ≤ 0,03 mm in X, ≤ 0,09 mm in Z, mindestens 0,07 mm Luft je Seite). Die Steckflächen liegen exakt aufeinander (Spalt 0,000). Aber: Die beiden Herstellermodelle haben Anschlagebenen, die 0,10 mm auseinanderliegen; dadurch überschneiden sie sich um 4,129 mm³ je Slot (Befund 1, Ursache offen). Nach der Regel (> 0,01 mm³) ist das eine Kollision, daher ⚠️ und Exit-Code 1. |
 | (c) Passen die BusBoard-Löcher auf die Taschen im Rahmen? | ✅ | Alle 12 Löcher liegen achsgleich auf den 12 Taschen (Versatz 0,000 mm). |
 
-**Kollisionen:** 6, alle dieselbe Steckermodell-Überschneidung (Befund 1). Sonst gibt es keine Überschneidung zwischen Platinen, Bauteilen und Gehäuse.
-**Außerhalb der drei Fragen:** Ein Deckplatten-Loch liegt bestätigt 1,000 mm daneben, an beiden Platten (Befund 2, offene Frage Q2). Das Logo rechts steht bestätigt auf dem Kopf (Befund 3, Q3). Die hinteren Leisten passen geometrisch (Q4, Befund 4).
+| (d) Sitzen Schrauben und Einschmelzmuttern auf den Bohrungen? | ⚠️ | Alle 48 Teile (24 Muttern, 24 Schrauben) liegen achsgleich in ihren Taschen (Versatz 0,000 mm), die Schrauben stecken ganz in den Muttern, die Muttern füllen die Ø5×5-Taschen. Nur die zwei Plattenschrauben an dem 1,0 mm versetzten Plattenloch (9 \| 105,5) durchdringen die Platte (Befund 2). Das ist keine der drei Spec-Fragen, daher eigene Zeile. |
 
-Nichts wurde geändert. `desktop/station.sc` und alle Teile sind unverändert. Diese Datei berichtet nur.
+**Kollisionen:** 8: 6 × dieselbe Steckermodell-Überschneidung (Befund 1) und 2 × Schraube gegen Deckplatte (je 7,72 mm³, Befund 2). Sonst gibt es keine Überschneidung zwischen Platinen, Bauteilen, Gehäuse und Befestigungsteilen. 42 Paare konnten nicht gerechnet werden (Befund 6, Lötstopplack-Flächen).
+**Außerhalb der drei Fragen:** Ein Deckplatten-Loch liegt bestätigt 1,000 mm daneben, an beiden Platten (Befund 2, offene Frage Q2). Q3 (Logo) und Q4 (Leisten) sind entschieden und in der Baugruppe umgesetzt (Befund 3, 4).
+
+Diese Datei berichtet nur: Teile und Platzierungen werden hier nicht geändert. Stand: `station.sc` mit 61 Occurrences (13 Gehäuse- und Platinenteile, 48 Befestigungsteile), Platinen aus den detaillierten STEPs (alle Bauteilmodelle, Pads, Bestückungsdruck, Lötstopplack).
 
 ![Station von vorne (iso)](img/station-front-iso.png)
 
@@ -31,22 +33,30 @@ Nichts wurde geändert. `desktop/station.sc` und alle Teile sind unverändert. D
 
 ![Rechte Seite](img/station-right-side.png)
 
-*Rechte Seite (+X). Das Logo der Deckplatte-rechts steht auf dem Kopf (Q3).*
+*Rechte Seite (+X). Die Schrift des Logos liegt neben dem BusBoard (links im Bild), wie auf der linken Platte; dasselbe Teil auf beiden Seiten (Q3). Je Platte vier Schrauben.*
+
+![BusBoard-Rückseite mit den 12 Schrauben M3×6](img/station-back-schrauben.png)
+
+*Blick von hinten links: die 12 Schrauben M3×6 (Ø5,5-Köpfe) sitzen auf der BusBoard-Rückseite bei z = 10 und z = 100. Keine hinteren Leisten mehr.*
+
+![Ecke vorne rechts mit Platten- und Leistenschrauben](img/station-ecke-schrauben.png)
+
+*Ecke vorne rechts oben: Plattenschraube (links, M3×8 auf der Seitenplatte) und Leistenschraube (rechts, auf der vorderen Leiste).*
 
 ## Method
 
 `tools/fit_check.py` checks the open app (`solidcraft --control 7878`) through `tools/sc_mcp.py` and only reads the design:
 
-- `occurrence.properties` for the 15 top-level occurrences gives the world bounding box of every placed body (665 bodies; instanced STEP sub-bodies included).
-- `body_topology` gives exact faces in world coordinates: planar faces with normals, and cylinders with axis and radius. It is used for the frames, plates, strips, BusBoard PCB, one header instance and the 6 sockets.
-- `inspect.clearance` (SolidCraft's interference/clearance command) runs over all 665 placed bodies with `skip_within: "component"`, `min_volume: 0.01` and `clearance: 0.2`. In a fresh app session the run took 453 s; 47 pairs were intersected exactly and 169 540 pruned by box/mesh (an exploratory run with `skip_within: "occurrence"`, which keeps the part-on-own-PCB pairs, intersected 776). Re-runs reuse the cached pairs (< 1 s); the committed `fit-check.json` is from such a cached re-run (`pairs_checked` 47, `pairs_reused` 47, `seconds` 0.9). It reported 0 unchecked pairs. Pairs inside one top-level occurrence (a part on its own PCB) are dropped.
+- `occurrence.properties` for the 61 top-level occurrences gives the world bounding box of every placed body (4725 bodies: the detailed STEPs carry ~4100 pad / silkscreen / soldermask layers besides the components; instanced STEP sub-bodies included).
+- `body_topology` gives exact faces in world coordinates: planar faces with normals, and cylinders with axis and radius. It is used for the frames, plates, front strips, BusBoard PCB, one header instance and the 6 sockets.
+- `inspect.clearance` (SolidCraft's interference/clearance command) runs over all 4725 placed bodies with `skip_within: "component"`, `min_volume: 0.01` and `clearance: 0.2`. In a fresh app session the run took **6416 s (107 min)** (the earlier model with 665 bodies took 453 s; the pad / silkscreen / soldermask layers dominate); 473 pairs were intersected exactly (431 of them reused from an earlier call), 9 541 486 were pruned by box/mesh. Do not narrow the run with `bodies`/`against`: bodies of several instances share one name (e.g. the 6 BusBoard headers) and only one instance is matched. Pairs inside one top-level occurrence (a part on its own PCB) are dropped. 42 pairs are reported as unchecked (Befund 6).
 - `inspect.section` plus `screenshot {source: "model", camera}` give the pictures. The section is cleared again at the end.
 
-No scratch design was needed, because SolidCraft has a direct interference command. `station.sc` was never modified or saved: `dirty: false` before and after each run, and the app still shows `station`, clean.
+No scratch design was needed, because SolidCraft has a direct interference command. `station.sc` is only read (`dirty: false` before and after the run).
 
-Re-run: `python3 tools/fit_check.py` (add `--no-images` to skip the pictures). It writes `reference/fit-check.json`. Exit 0 = all three checks "pass", 1 = any check is "warn" or "fail" (currently 1, because B is "warn"), 2 = the app cannot be used (e.g. another design with unsaved changes is open).
+Re-run: `python3 tools/fit_check.py` (add `--no-images` to skip the pictures). It writes `reference/fit-check.json`. Exit 0 = all checks "pass", 1 = any check is "warn" or "fail" (currently 1, because B and D are "warn"), 2 = the app cannot be used (e.g. another design with unsaved changes is open).
 
-Pass criteria: groove clearance > 0 on both sides, floor gap ≥ 0, engagement > 0. Connector: 20/20 pins inside a cavity, side gap > 0, pin-to-cavity centre offset ≤ 0.15, mating-face gap and axial interference ≤ 0.2. Holes: axis offset ≤ 0.1. A collision is an overlap > 0.01 mm³.
+Pass criteria: groove clearance > 0 on both sides, floor gap ≥ 0, engagement > 0. Connector: 20/20 pins inside a cavity, side gap > 0, pin-to-cavity centre offset ≤ 0.15, mating-face gap and axial interference ≤ 0.2. Holes: axis offset ≤ 0.1. Fasteners (D): axis offset to the pocket and to the plate / strip / BusBoard hole ≤ 0.1, no overlap with any other part. A collision is an overlap > 0.01 mm³.
 
 ## (a) Board edge in the grooves
 
@@ -101,22 +111,38 @@ The board edges rest on both 5 mm steps: contact at z 5 (bottom frame) and z 105
 | Deckplatte-links | 4 holes vs side bores (Ø3.2, x −63) | 0.000, **1.000** (y 54 vs 55, z 105.5), 0.000, 0.000 |
 | Deckplatte-rechts | 4 holes vs side bores (x +63) | 0.000, **1.000** (y 54 vs 55, z 4.5), 0.000, 0.000 |
 | Leiste-1 / Leiste-2 | 2 holes each vs front bores (y 55, x ±50) | 0.000 |
-| Leiste-3 / Leiste-4 | 2 holes each vs BusBoard holes H101/H106, H109/H108 | 0.000 |
+
+## (d) Schrauben und Einschmelzmuttern
+
+Achse jedes Teils (Mitte seiner Bounding Box quer zur Schraubenrichtung) gegen die Ø5-Tasche im Gestell und gegen das Loch des durchsteckten Teils:
+
+| Gruppe | Anzahl | Versatz zur Tasche | Versatz zum Loch in Platte / Leiste / BusBoard |
+|---|---|---|---|
+| Mutter-Platte | 8 | 0.000 | – |
+| Schraube-Platte (M3×8) | 8 | 0.000 | 0.000 (6×), **1.000** (`Schraube-Platte-L3`, `-R1`) |
+| Mutter-Leiste | 4 | 0.000 | – |
+| Schraube-Leiste (M3×8) | 4 | 0.000 | 0.000 |
+| Mutter-Bus | 12 | 0.000 | – |
+| Schraube-Bus (M3×6) | 12 | 0.000 | 0.000 (BusBoard-Löcher) |
+
+Kontakte der Befestigungsteile (82 Paare mit Abstand 0): jede Schraube in ihrer Mutter (24, Zylinderfläche Ø3), jede Mutter in der Tasche des Gestells (24); Deckplatte und Leiste liegen auf der Mutter-Stirnseite (8 + 4); die Köpfe der 6 störungsfreien Plattenschrauben und der 4 Leistenschrauben liegen auf Platte beziehungsweise Leiste auf (6 + 4), die Köpfe der Bus-Schrauben auf der BusBoard-Rückseite (12, `BusBoard_PCB`). Die Schäfte haben 0,1 mm Luft in den Gestellbohrungen (Ø3 in Ø3.2, 12 Paare). Die Muttern der BusBoard-Befestigung sind 0,035 mm (Lötstopplack) beziehungsweise 0,085 mm (`BusBoard_PCB`-Körper) von der Platinenvorderseite entfernt: das ist der 1,516/1,6012-Modellartefakt (Befund 5), keine Lücke.
 
 ## Interference summary
 
-- **Collisions (overlap > 0.01 mm³): 6.** Each is a module socket against its BusBoard header, 4.129 mm³, in the slab y −42.5 … −42.4, x ±4.05 around the connector, z 38.97 … 71.07 (Befund 1).
-- **Touching (distance 0), 14 pairs, all intended contacts:** both frames with both plates, both frames with the front strip of their frame, both plates with both front strips, the BusBoard edges on the bottom step (z 5) and top step (z 105), Leiste-3/-4 on the back of the BusBoard.
-- **Near (0 < d < 0.2 mm), 18 pairs:** each module PCB back edge is 0.026 from its header's top corner, and each module PCB is 0.126 from the back walls of both frames.
+- **Collisions (overlap > 0.01 mm³): 8.** 6 × a module socket against its BusBoard header, 4.129 mm³, in the slab y −42.5 … −42.4, x ±4.05 around the connector, z 38.97 … 71.07 (Befund 1). 2 × a plate screw against the cover plate at the 1.0 mm off hole, 7.723 mm³ each (`Schraube-Platte-L3` against `Deckplatte-links`, `Schraube-Platte-R1` against `Deckplatte-rechts`; Befund 2).
+- **Touching (distance 0), 15 pairs without fasteners, all intended contacts:** both frames with both plates, both frames with the front strip of their frame, both plates with both front strips, the BusBoard edges on the bottom step (z 5) and top step (z 105). Dazu 82 Paare mit Befestigungsteilen (Abschnitt (d)).
+- **Near (0 < d < 0.2 mm): 33 pairs without fasteners:** each module PCB back edge is 0.026 from its header's top corner, each module PCB is 0.126 from the back walls of both frames, and the frames are 0.010 from the BusBoard's soldermask sheet. Dazu 36 Paare mit Befestigungsteilen (Abschnitt (d)).
 - PCB vs PCB: none. The only contact between boards is the connector pair.
-- Unchecked pairs: 0 (there are no mesh bodies).
+- Unchecked pairs: 42 (Befund 6).
 
 ## Findings
 
 1. **Connector models overlap 0.10 mm axially (all 6 slots, 4.129 mm³ each).** The socket's mating face lies exactly on the header housing (y −48.8; this is how assembly.md placed it). Behind that, the header model has a second seating plane at y −42.4 (11.6 above the BusBoard component plane) and the socket model one at y −42.5: two seating planes 0.10 mm apart. The overlap is 4.129 mm³ / 0.1 mm = 41.3 mm² over a bbox of 8.1 × 32.1 mm, i.e. housing-sized, not the pin tips (20 pins × 0.36 mm² = 7.2 mm² at most). The cause is unresolved: no datasheet mated height was checked. In reality one of two things happens. Either the header bottoms out in the socket 0.10 mm before the faces touch, so the module sits 0.10 mm further forward: back-wall clearance goes from 0.126 to 0.226 and the front edge to 57.726 (frame front 60). Or the two vendor models are not exact about the mated height. Neither case is a fit problem: the board stays in the grooves (3.5 mm engagement along z is unaffected) and the pins are inside the cavities. → ⚠️ instead of ✅ for (b).
-2. **Cover plate hole 1.000 off (Q2, confirmed on both plates).** Hole B of the plate (local (9 | 105.5)) lands at y 54.0 while the bores are at y 55.0. It is at the top front corner on the left plate and the bottom front corner on the right plate. The Ø3.2 hole and the Ø3.2 bore overlap only in a 2.2 mm wide passage, so an M3 screw (3.0) will not go through without opening up the hole. Either the plate hole should be (8 | 105.5), or the frame bore is at y 54.
-3. **Logo upside down on Deckplatte-rechts (Q3, confirmed).** See the right-side picture. The geometry proves it independently: the plate's 1.0-off hole B (local top) lies at the bottom (z 4.5) on the right plate and at the top (z 105.5) on the left plate, so the right plate is the same part turned 180° about its normal.
-4. **Back strips Leiste-3/-4 (Q4).** Geometrically consistent: hole offset 0.000 to BusBoard H101/H106 and H109/H108 (and thus to the pockets), lying flat on the BusBoard's back face (contact), no overlap with anything. The header pin tails stick out to y −57.2 at z 33…77, far from the strip bands z 5.5…14 / 96…104.5. The strips are 0.5 from the frame steps (z 5 vs 5.5). Whether they are *meant* to be there is still Peter's call.
+2. **Cover plate hole 1.000 off (Q2, confirmed on both plates); screw collides there.** Hole B of the plate (local (9 | 105.5)) lands at y 54.0 while the bores are at y 55.0. It is at the top front corner on the left plate and the bottom front corner on the right plate. The Ø3.2 hole and the Ø3.2 bore overlap only in a 2.2 mm wide passage, so an M3 screw (3.0) will not go through without opening up the hole. In the assembly the screws sit on the frame bores as instructed, so `Schraube-Platte-L3` (left, z 105.5) and `Schraube-Platte-R1` (right, z 4.5) cut into the plate: 7.72 mm³ each at (±69.5, 55.77, z). Either the plate hole should be (8 | 105.5), or the frame bore is at y 54. No part was changed.
+3. **Logo (Q3, entschieden).** Peter: Die Station steht im Betrieb auf dem BusBoard; das Logo ist um 90° gedreht, die Schrift liegt neben dem BusBoard, dasselbe Teil auf beiden Seiten (siehe Seitenbild). Die um 1,0 mm versetzte Bohrung B liegt weiter an der Platte links oben und rechts unten, die rechte Platte ist also dasselbe Teil um 180° um die Normale gedreht.
+4. **Leisten (Q4, entschieden): nur vorne.** Die hinteren Klemmleisten `Leiste-3`/`-4` sind entfernt. Die Bohrungen der Vorderleisten fluchten mit den Frontbohrungen (0.000). Die BusBoard-Schrauben M3×6 sitzen mit dem Kopf direkt auf der Platinenrückseite; ihre Köpfe (Ø5,5 × 3 bei z 10 / 100) liegen frei von Bauteilen (die Rückseitenbauteile liegen bei z 64…90).
 5. **Board body thickness is a model artefact, not a gap.** The KiCad STEP export makes every board body ~1.516 thick (core without copper/mask), while all components sit on the 1.6012 component plane. On the BusBoard the header bases are exactly at y −54.000 (on the back faces), so the real board lies flat on the frame; the 0.085 between `BusBoard_PCB` (y −54.085) and y −54 does not exist on the real part and nothing shifts when screwed. On the modules the same artefact would inflate the +X groove clearance to 1.105; the real value is 1.020 (table (a)).
+
+6. **Lötstopplack-Flächen sind keine Volumenkörper, 42 Paare ungeprüft.** Die STEP-Export-Lötstopplack-Körper (`*_soldermask`) sind nulldicke Flächen (z. B. `BusBoard_soldermask (2)` bei y −55.6512, 0.05 hinter der Platinenrückseite −55.6012); `inspect.clearance` meldet für sie `boolean Intersect: the operation failed`. Betroffen: 24 × Bus-Schraube gegen die zwei BusBoard-Lackflächen (der Schraubenkopf liegt auf y −55.6012, die Rückseiten-Lackfläche schneidet 0.05 hinein, entspricht der echten Lackdicke), und 18 Paare Lackflächen gegen Gestelle und Header. Keines davon ist ein Passungsproblem; es gibt keinen Anlass für eine Überschneidung, sie sind nur nicht gerechnet.
 
 No part or placement was changed. Raw numbers: `reference/fit-check.json`.

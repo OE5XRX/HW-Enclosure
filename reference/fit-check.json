@@ -764,72 +764,1326 @@
      ],
      "offset": 0.0
     }
-   ],
-   "Leiste-3": [
+   ]
+  },
+  "fasteners": {
+   "status": "warn",
+   "count": 48,
+   "groups": {
+    "Mutter-Platte": {
+     "count": 8,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 0.0
+    },
+    "Schraube-Platte": {
+     "count": 8,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 1.0
+    },
+    "Mutter-Leiste": {
+     "count": 4,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 0.0
+    },
+    "Schraube-Leiste": {
+     "count": 4,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 0.0
+    },
+    "Mutter-Bus": {
+     "count": 12,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 0.0
+    },
+    "Schraube-Bus": {
+     "count": 12,
+     "max_offset_to_pocket": 0.0,
+     "max_offset_to_part_hole": 0.0
+    }
+   },
+   "off_target": [
     {
-     "hole_xz": [
-      50.0,
-      10.0
+     "occurrence": "Schraube-Platte-L3",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      105.5
      ],
-     "busboard_hole_xz": [
-      50.0,
-      10.0
+     "bbox_min": [
+      -74.0,
+      52.25,
+      102.75
      ],
-     "offset": 0.0
+     "bbox_max": [
+      -63.0,
+      57.75,
+      108.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 1.0
     },
     {
-     "hole_xz": [
-      -50.0,
-      10.0
+     "occurrence": "Schraube-Platte-R1",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      4.5
      ],
-     "busboard_hole_xz": [
-      -50.0,
-      10.0
+     "bbox_min": [
+      63.0,
+      52.25,
+      1.75
      ],
-     "offset": 0.0
+     "bbox_max": [
+      74.0,
+      57.75,
+      7.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 1.0
     }
    ],
-   "Leiste-4": [
+   "occurrences": [
     {
-     "hole_xz": [
-      -50.0,
-      100.0
+     "occurrence": "Mutter-Platte-L1",
+     "kind": "Mutter",
+     "axis_uv": [
+      55.0,
+      4.5
      ],
-     "busboard_hole_xz": [
-      -50.0,
-      100.0
+     "bbox_min": [
+      -68.0,
+      52.5,
+      2.0
      ],
-     "offset": 0.0
+     "bbox_max": [
+      -63.0,
+      57.5,
+      7.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
     },
     {
-     "hole_xz": [
+     "occurrence": "Schraube-Platte-L1",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      4.5
+     ],
+     "bbox_min": [
+      -74.0,
+      52.25,
+      1.75
+     ],
+     "bbox_max": [
+      -63.0,
+      57.75,
+      7.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Platte-L2",
+     "kind": "Mutter",
+     "axis_uv": [
+      -49.0,
+      10.0
+     ],
+     "bbox_min": [
+      -68.0,
+      -51.5,
+      7.5
+     ],
+     "bbox_max": [
+      -63.0,
+      -46.5,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-L2",
+     "kind": "Schraube",
+     "axis_uv": [
+      -49.0,
+      10.0
+     ],
+     "bbox_min": [
+      -74.0,
+      -51.75,
+      7.25
+     ],
+     "bbox_max": [
+      -63.0,
+      -46.25,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Platte-L3",
+     "kind": "Mutter",
+     "axis_uv": [
+      55.0,
+      105.5
+     ],
+     "bbox_min": [
+      -68.0,
+      52.5,
+      103.0
+     ],
+     "bbox_max": [
+      -63.0,
+      57.5,
+      108.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-L3",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      105.5
+     ],
+     "bbox_min": [
+      -74.0,
+      52.25,
+      102.75
+     ],
+     "bbox_max": [
+      -63.0,
+      57.75,
+      108.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 1.0
+    },
+    {
+     "occurrence": "Mutter-Platte-L4",
+     "kind": "Mutter",
+     "axis_uv": [
+      -49.0,
+      100.0
+     ],
+     "bbox_min": [
+      -68.0,
+      -51.5,
+      97.5
+     ],
+     "bbox_max": [
+      -63.0,
+      -46.5,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-L4",
+     "kind": "Schraube",
+     "axis_uv": [
+      -49.0,
+      100.0
+     ],
+     "bbox_min": [
+      -74.0,
+      -51.75,
+      97.25
+     ],
+     "bbox_max": [
+      -63.0,
+      -46.25,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Platte-R1",
+     "kind": "Mutter",
+     "axis_uv": [
+      55.0,
+      4.5
+     ],
+     "bbox_min": [
+      63.0,
+      52.5,
+      2.0
+     ],
+     "bbox_max": [
+      68.0,
+      57.5,
+      7.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-R1",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      4.5
+     ],
+     "bbox_min": [
+      63.0,
+      52.25,
+      1.75
+     ],
+     "bbox_max": [
+      74.0,
+      57.75,
+      7.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 1.0
+    },
+    {
+     "occurrence": "Mutter-Platte-R2",
+     "kind": "Mutter",
+     "axis_uv": [
+      -49.0,
+      10.0
+     ],
+     "bbox_min": [
+      63.0,
+      -51.5,
+      7.5
+     ],
+     "bbox_max": [
+      68.0,
+      -46.5,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-R2",
+     "kind": "Schraube",
+     "axis_uv": [
+      -49.0,
+      10.0
+     ],
+     "bbox_min": [
+      63.0,
+      -51.75,
+      7.25
+     ],
+     "bbox_max": [
+      74.0,
+      -46.25,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Platte-R3",
+     "kind": "Mutter",
+     "axis_uv": [
+      55.0,
+      105.5
+     ],
+     "bbox_min": [
+      63.0,
+      52.5,
+      103.0
+     ],
+     "bbox_max": [
+      68.0,
+      57.5,
+      108.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-R3",
+     "kind": "Schraube",
+     "axis_uv": [
+      55.0,
+      105.5
+     ],
+     "bbox_min": [
+      63.0,
+      52.25,
+      102.75
+     ],
+     "bbox_max": [
+      74.0,
+      57.75,
+      108.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Platte-R4",
+     "kind": "Mutter",
+     "axis_uv": [
+      -49.0,
+      100.0
+     ],
+     "bbox_min": [
+      63.0,
+      -51.5,
+      97.5
+     ],
+     "bbox_max": [
+      68.0,
+      -46.5,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Platte-R4",
+     "kind": "Schraube",
+     "axis_uv": [
+      -49.0,
+      100.0
+     ],
+     "bbox_min": [
+      63.0,
+      -51.75,
+      97.25
+     ],
+     "bbox_max": [
+      74.0,
+      -46.25,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Leiste-1L",
+     "kind": "Mutter",
+     "axis_uv": [
+      -50.0,
+      4.5
+     ],
+     "bbox_min": [
+      -52.5,
+      55.0,
+      2.0
+     ],
+     "bbox_max": [
+      -47.5,
+      60.0,
+      7.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Leiste-1L",
+     "kind": "Schraube",
+     "axis_uv": [
+      -50.0,
+      4.5
+     ],
+     "bbox_min": [
+      -52.75,
+      55.0,
+      1.75
+     ],
+     "bbox_max": [
+      -47.25,
+      66.0,
+      7.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Leiste-1R",
+     "kind": "Mutter",
+     "axis_uv": [
+      50.0,
+      4.5
+     ],
+     "bbox_min": [
+      47.5,
+      55.0,
+      2.0
+     ],
+     "bbox_max": [
+      52.5,
+      60.0,
+      7.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Leiste-1R",
+     "kind": "Schraube",
+     "axis_uv": [
+      50.0,
+      4.5
+     ],
+     "bbox_min": [
+      47.25,
+      55.0,
+      1.75
+     ],
+     "bbox_max": [
+      52.75,
+      66.0,
+      7.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Leiste-2L",
+     "kind": "Mutter",
+     "axis_uv": [
+      -50.0,
+      105.5
+     ],
+     "bbox_min": [
+      -52.5,
+      55.0,
+      103.0
+     ],
+     "bbox_max": [
+      -47.5,
+      60.0,
+      108.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Leiste-2L",
+     "kind": "Schraube",
+     "axis_uv": [
+      -50.0,
+      105.5
+     ],
+     "bbox_min": [
+      -52.75,
+      55.0,
+      102.75
+     ],
+     "bbox_max": [
+      -47.25,
+      66.0,
+      108.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Leiste-2R",
+     "kind": "Mutter",
+     "axis_uv": [
+      50.0,
+      105.5
+     ],
+     "bbox_min": [
+      47.5,
+      55.0,
+      103.0
+     ],
+     "bbox_max": [
+      52.5,
+      60.0,
+      108.0
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Leiste-2R",
+     "kind": "Schraube",
+     "axis_uv": [
+      50.0,
+      105.5
+     ],
+     "bbox_min": [
+      47.25,
+      55.0,
+      102.75
+     ],
+     "bbox_max": [
+      52.75,
+      66.0,
+      108.25
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-1",
+     "kind": "Mutter",
+     "axis_uv": [
+      -50.0,
+      10.0
+     ],
+     "bbox_min": [
+      -52.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      -47.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-1",
+     "kind": "Schraube",
+     "axis_uv": [
+      -50.0,
+      10.0
+     ],
+     "bbox_min": [
+      -52.75,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      -47.25,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-2",
+     "kind": "Mutter",
+     "axis_uv": [
+      -30.0,
+      10.0
+     ],
+     "bbox_min": [
+      -32.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      -27.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-2",
+     "kind": "Schraube",
+     "axis_uv": [
+      -30.0,
+      10.0
+     ],
+     "bbox_min": [
+      -32.75,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      -27.25,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-3",
+     "kind": "Mutter",
+     "axis_uv": [
+      -10.0,
+      10.0
+     ],
+     "bbox_min": [
+      -12.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      -7.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-3",
+     "kind": "Schraube",
+     "axis_uv": [
+      -10.0,
+      10.0
+     ],
+     "bbox_min": [
+      -12.75,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      -7.25,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-4",
+     "kind": "Mutter",
+     "axis_uv": [
+      10.0,
+      10.0
+     ],
+     "bbox_min": [
+      7.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      12.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-4",
+     "kind": "Schraube",
+     "axis_uv": [
+      10.0,
+      10.0
+     ],
+     "bbox_min": [
+      7.25,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      12.75,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-5",
+     "kind": "Mutter",
+     "axis_uv": [
+      30.0,
+      10.0
+     ],
+     "bbox_min": [
+      27.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      32.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-5",
+     "kind": "Schraube",
+     "axis_uv": [
+      30.0,
+      10.0
+     ],
+     "bbox_min": [
+      27.25,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      32.75,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-6",
+     "kind": "Mutter",
+     "axis_uv": [
+      50.0,
+      10.0
+     ],
+     "bbox_min": [
+      47.5,
+      -54.0,
+      7.5
+     ],
+     "bbox_max": [
+      52.5,
+      -49.0,
+      12.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-6",
+     "kind": "Schraube",
+     "axis_uv": [
+      50.0,
+      10.0
+     ],
+     "bbox_min": [
+      47.25,
+      -58.601,
+      7.25
+     ],
+     "bbox_max": [
+      52.75,
+      -49.601,
+      12.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-7",
+     "kind": "Mutter",
+     "axis_uv": [
+      -50.0,
+      100.0
+     ],
+     "bbox_min": [
+      -52.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      -47.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-7",
+     "kind": "Schraube",
+     "axis_uv": [
+      -50.0,
+      100.0
+     ],
+     "bbox_min": [
+      -52.75,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      -47.25,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-8",
+     "kind": "Mutter",
+     "axis_uv": [
+      -30.0,
+      100.0
+     ],
+     "bbox_min": [
+      -32.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      -27.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-8",
+     "kind": "Schraube",
+     "axis_uv": [
+      -30.0,
+      100.0
+     ],
+     "bbox_min": [
+      -32.75,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      -27.25,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-9",
+     "kind": "Mutter",
+     "axis_uv": [
+      -10.0,
+      100.0
+     ],
+     "bbox_min": [
+      -12.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      -7.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-9",
+     "kind": "Schraube",
+     "axis_uv": [
+      -10.0,
+      100.0
+     ],
+     "bbox_min": [
+      -12.75,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      -7.25,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-10",
+     "kind": "Mutter",
+     "axis_uv": [
+      10.0,
+      100.0
+     ],
+     "bbox_min": [
+      7.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      12.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-10",
+     "kind": "Schraube",
+     "axis_uv": [
+      10.0,
+      100.0
+     ],
+     "bbox_min": [
+      7.25,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      12.75,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-11",
+     "kind": "Mutter",
+     "axis_uv": [
+      30.0,
+      100.0
+     ],
+     "bbox_min": [
+      27.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      32.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-11",
+     "kind": "Schraube",
+     "axis_uv": [
+      30.0,
+      100.0
+     ],
+     "bbox_min": [
+      27.25,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      32.75,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
+    },
+    {
+     "occurrence": "Mutter-Bus-12",
+     "kind": "Mutter",
+     "axis_uv": [
       50.0,
       100.0
      ],
-     "busboard_hole_xz": [
+     "bbox_min": [
+      47.5,
+      -54.0,
+      97.5
+     ],
+     "bbox_max": [
+      52.5,
+      -49.0,
+      102.5
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": null
+    },
+    {
+     "occurrence": "Schraube-Bus-12",
+     "kind": "Schraube",
+     "axis_uv": [
       50.0,
       100.0
      ],
-     "offset": 0.0
+     "bbox_min": [
+      47.25,
+      -58.601,
+      97.25
+     ],
+     "bbox_max": [
+      52.75,
+      -49.601,
+      102.75
+     ],
+     "offset_to_pocket": 0.0,
+     "offset_to_part_hole": 0.0
     }
    ]
   },
   "status": "pass"
  },
  "interference": {
-  "seconds": 0.9,
-  "bodies": 665,
-  "pairs_checked": 47,
-  "pairs_reused": 47,
-  "pairs_pruned": 169540,
-  "note": "pairs_checked/pairs_reused/seconds describe this run; a run in a fresh app session (no cache) took 453 s for the same 47 exact pairs",
-  "unchecked": [],
+  "seconds": 6416.0,
+  "bodies": 4725,
+  "pairs_checked": 473,
+  "pairs_reused": 431,
+  "pairs_pruned": 9541486,
+  "note": "pairs_checked/pairs_reused/seconds describe this run; a run in a fresh app session (no pair cache) took ~6400 s",
+  "unchecked": [
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (8)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (6)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (3)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (4)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "CM4Carrier_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "CM4Carrier_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "PowerBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "PowerBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (8)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (4)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "PowerBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (13)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (13)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (14)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (14)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (15)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (15)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (16)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (16)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (17)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (17)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (18)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (18)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (19)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (19)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (20)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (20)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (21)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (21)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (22)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (22)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (23)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (23)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (24)",
+    "b": "BusBoard_soldermask",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "Schraube (24)",
+    "b": "BusBoard_soldermask (2)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "FMTransceiver_soldermask",
+    "b": "PCN10-20P-2.54DSA",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "CM4Carrier_soldermask",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:3/PCN10-20P-2.54DSA:1)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   },
+   {
+    "a": "PowerBoard_soldermask",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:4/PCN10-20P-2.54DSA:1)",
+    "reason": "the operation failed: boolean Intersect: the operation failed: no result"
+   }
+  ],
   "collisions": [
+   {
+    "a": "deckplatte",
+    "b": "Schraube (3)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L3",
+    "fastener": true,
+    "volume_mm3": 7.7233,
+    "bbox": [
+     [
+      -71.0,
+      54.655,
+      104.0
+     ],
+     [
+      -68.0,
+      56.5,
+      107.0
+     ]
+    ],
+    "center": [
+     -69.5,
+     55.771,
+     105.5
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (5)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R1",
+    "fastener": true,
+    "volume_mm3": 7.7235,
+    "bbox": [
+     [
+      68.0,
+      54.655,
+      3.0
+     ],
+     [
+      71.0,
+      56.5,
+      6.0
+     ]
+    ],
+    "center": [
+     69.5,
+     55.771,
+     4.5
+    ]
+   },
    {
     "a": "PCN10C-20S-2.54DS (6)",
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:2/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot6-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -854,6 +2108,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:5/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot5-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -878,6 +2133,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:6/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot4-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -902,6 +2158,7 @@
     "b": "PCN10-20P-2.54DSA",
     "occ_a": "Slot3-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -926,6 +2183,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:3/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot2-CM4Carrier",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -950,6 +2208,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:4/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot1-PowerBoard",
     "occ_b": "BusBoard",
+    "fastener": false,
     "volume_mm3": 4.129,
     "bbox": [
      [
@@ -976,6 +2235,7 @@
     "b": "deckplatte",
     "occ_a": "Gestell",
     "occ_b": "Deckplatte-links",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -68.0,
@@ -988,6 +2248,7 @@
     "b": "deckplatte (2)",
     "occ_a": "Gestell",
     "occ_b": "Deckplatte-rechts",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      68.0,
@@ -1000,6 +2261,7 @@
     "b": "leiste",
     "occ_a": "Gestell",
     "occ_b": "Leiste-1",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      68.0,
@@ -1009,9 +2271,179 @@
    },
    {
     "a": "Grundgestell",
+    "b": "Einschmelzmutter",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     57.497,
+     4.375
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (2)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -51.423,
+     10.615
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (5)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     56.298,
+     6.636
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (6)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -51.386,
+     10.748
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (9)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.196,
+     60.0,
+     2.305
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (10)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.615,
+     60.0,
+     2.077
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (13)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.456,
+     -52.703,
+     9.534
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (14)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -32.498,
+     -49.0,
+     9.911
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (15)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -12.136,
+     -49.0,
+     8.702
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (16)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     11.448,
+     -49.0,
+     12.038
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (17)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-5",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     28.48,
+     -49.0,
+     11.985
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (18)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-6",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     52.357,
+     -49.0,
+     9.167
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Gestell",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.0,
+    "at": [
+     57.366,
+     -54.035,
+     5.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
     "b": "BusBoard_PCB",
     "occ_a": "Gestell",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      57.366,
@@ -1024,6 +2456,7 @@
     "b": "deckplatte",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Deckplatte-links",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -68.0,
@@ -1036,10 +2469,11 @@
     "b": "deckplatte (2)",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Deckplatte-rechts",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      68.0,
-     -54.0,
+     60.0,
      110.0
     ]
    },
@@ -1048,6 +2482,7 @@
     "b": "leiste (2)",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Leiste-2",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -68.0,
@@ -1057,9 +2492,192 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (3)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     55.512,
+     107.947
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (4)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -51.423,
+     99.385
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (7)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     56.419,
+     103.442
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (8)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -51.33,
+     99.094
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (11)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.176,
+     60.0,
+     107.706
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (12)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.0,
+     60.0,
+     108.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (19)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-7",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.424,
+     -49.0,
+     100.611
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (20)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-8",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -30.878,
+     -54.0,
+     102.341
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (21)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-9",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -12.027,
+     -49.0,
+     98.537
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (22)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-10",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     10.311,
+     -54.0,
+     97.519
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (23)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-11",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     29.183,
+     -49.0,
+     97.637
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (24)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-12",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     52.471,
+     -49.0,
+     100.382
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.0,
+    "at": [
+     -60.0,
+     -54.035,
+     105.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "BusBoard_soldermask (2)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.0,
+    "at": [
+     -30.573,
+     -55.651,
+     105.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "BusBoard_PCB",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -60.0,
@@ -1072,6 +2690,7 @@
     "b": "leiste",
     "occ_a": "Deckplatte-links",
     "occ_b": "Leiste-1",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -68.0,
@@ -1084,6 +2703,7 @@
     "b": "leiste (2)",
     "occ_a": "Deckplatte-links",
     "occ_b": "Leiste-2",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      -68.0,
@@ -1092,10 +2712,102 @@
     ]
    },
    {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     53.464,
+     4.948
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     56.438,
+     3.799
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (2)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -50.536,
+     10.448
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube (2)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     -50.6,
+     10.0
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (3)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     52.948,
+     106.705
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (4)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -50.536,
+     100.448
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube (4)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     -50.6,
+     100.0
+    ]
+   },
+   {
     "a": "deckplatte (2)",
     "b": "leiste",
     "occ_a": "Deckplatte-rechts",
     "occ_b": "Leiste-1",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      68.0,
@@ -1108,6 +2820,7 @@
     "b": "leiste (2)",
     "occ_a": "Deckplatte-rechts",
     "occ_b": "Leiste-2",
+    "fastener": false,
     "distance_mm": 0.0,
     "at": [
      68.0,
@@ -1116,36 +2829,741 @@
     ]
    },
    {
-    "a": "leiste (3)",
-    "b": "BusBoard_PCB",
-    "occ_a": "Leiste-3",
-    "occ_b": "BusBoard",
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (5)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R1",
+    "fastener": true,
     "distance_mm": 0.0,
     "at": [
-     57.366,
-     -55.601,
-     14.0
+     68.0,
+     53.247,
+     3.088
     ]
    },
    {
-    "a": "leiste (4)",
-    "b": "BusBoard_PCB",
-    "occ_a": "Leiste-4",
-    "occ_b": "BusBoard",
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (6)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R2",
+    "fastener": true,
     "distance_mm": 0.0,
     "at": [
-     57.366,
+     68.0,
+     -50.586,
+     10.212
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (6)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     -50.6,
+     10.0
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (7)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     53.414,
+     105.712
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (7)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     54.788,
+     107.086
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (8)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -49.753,
+     98.588
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (8)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     -50.6,
+     100.0
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Einschmelzmutter (9)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Mutter-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.755,
+     60.0,
+     2.719
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Schraube (9)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Schraube-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -50.394,
+     63.0,
+     6.051
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Einschmelzmutter (10)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Mutter-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     51.755,
+     60.0,
+     2.719
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Schraube (10)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Schraube-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.753,
+     63.0,
+     5.912
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Einschmelzmutter (11)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Mutter-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.661,
+     60.0,
+     107.368
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Schraube (11)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Schraube-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -50.419,
+     63.0,
+     107.044
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Einschmelzmutter (12)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Mutter-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     47.6,
+     60.0,
+     104.801
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Schraube (12)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Schraube-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.368,
+     63.0,
+     107.057
+    ]
+   },
+   {
+    "a": "Einschmelzmutter",
+    "b": "Schraube",
+    "occ_a": "Mutter-Platte-L1",
+    "occ_b": "Schraube-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     53.87,
+     5.486
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (2)",
+    "b": "Schraube (2)",
+    "occ_a": "Mutter-Platte-L2",
+    "occ_b": "Schraube-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     -50.13,
+     10.986
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (3)",
+    "b": "Schraube (3)",
+    "occ_a": "Mutter-Platte-L3",
+    "occ_b": "Schraube-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     55.42,
+     104.06
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (4)",
+    "b": "Schraube (4)",
+    "occ_a": "Mutter-Platte-L4",
+    "occ_b": "Schraube-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     -48.58,
+     98.56
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (5)",
+    "b": "Schraube (5)",
+    "occ_a": "Mutter-Platte-R1",
+    "occ_b": "Schraube-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     53.87,
+     3.514
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (6)",
+    "b": "Schraube (6)",
+    "occ_a": "Mutter-Platte-R2",
+    "occ_b": "Schraube-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     -50.13,
+     9.014
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (7)",
+    "b": "Schraube (7)",
+    "occ_a": "Mutter-Platte-R3",
+    "occ_b": "Schraube-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     55.42,
+     106.94
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (8)",
+    "b": "Schraube (8)",
+    "occ_a": "Mutter-Platte-R4",
+    "occ_b": "Schraube-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     -48.58,
+     101.44
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (9)",
+    "b": "Schraube (9)",
+    "occ_a": "Mutter-Leiste-1L",
+    "occ_b": "Schraube-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -49.014,
+     55.0,
+     5.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (10)",
+    "b": "Schraube (10)",
+    "occ_a": "Mutter-Leiste-1R",
+    "occ_b": "Schraube-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.986,
+     55.0,
+     5.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (11)",
+    "b": "Schraube (11)",
+    "occ_a": "Mutter-Leiste-2L",
+    "occ_b": "Schraube-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -49.014,
+     55.0,
+     106.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (12)",
+    "b": "Schraube (12)",
+    "occ_a": "Mutter-Leiste-2R",
+    "occ_b": "Schraube-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.986,
+     55.0,
+     106.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (13)",
+    "b": "Schraube (13)",
+    "occ_a": "Mutter-Bus-1",
+    "occ_b": "Schraube-Bus-1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (13)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-1",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.2,
      -55.601,
-     96.216
+     11.65
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (14)",
+    "b": "Schraube (14)",
+    "occ_a": "Mutter-Bus-2",
+    "occ_b": "Schraube-Bus-2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -28.753,
+     -52.333,
+     10.833
+    ]
+   },
+   {
+    "a": "Schraube (14)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-2",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -30.127,
+     -55.601,
+     12.747
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (15)",
+    "b": "Schraube (15)",
+    "occ_a": "Mutter-Bus-3",
+    "occ_b": "Schraube-Bus-3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -11.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (15)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-3",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -10.996,
+     -55.601,
+     12.563
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (16)",
+    "b": "Schraube (16)",
+    "occ_a": "Mutter-Bus-4",
+    "occ_b": "Schraube-Bus-4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     8.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (16)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-4",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     9.004,
+     -55.601,
+     7.437
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (17)",
+    "b": "Schraube (17)",
+    "occ_a": "Mutter-Bus-5",
+    "occ_b": "Schraube-Bus-5",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     31.247,
+     -52.333,
+     10.833
+    ]
+   },
+   {
+    "a": "Schraube (17)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-5",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     27.688,
+     -55.601,
+     8.511
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (18)",
+    "b": "Schraube (18)",
+    "occ_a": "Mutter-Bus-6",
+    "occ_b": "Schraube-Bus-6",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     48.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (18)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-6",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     51.808,
+     -55.601,
+     7.928
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (19)",
+    "b": "Schraube (19)",
+    "occ_a": "Mutter-Bus-7",
+    "occ_b": "Schraube-Bus-7",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -48.614,
+     -52.601,
+     99.426
+    ]
+   },
+   {
+    "a": "Schraube (19)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-7",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.618,
+     -55.601,
+     102.22
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (20)",
+    "b": "Schraube (20)",
+    "occ_a": "Mutter-Bus-8",
+    "occ_b": "Schraube-Bus-8",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -31.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (20)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-8",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -31.808,
+     -55.601,
+     102.072
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (21)",
+    "b": "Schraube (21)",
+    "occ_a": "Mutter-Bus-9",
+    "occ_b": "Schraube-Bus-9",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -11.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (21)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-9",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -10.342,
+     -55.601,
+     102.729
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (22)",
+    "b": "Schraube (22)",
+    "occ_a": "Mutter-Bus-10",
+    "occ_b": "Schraube-Bus-10",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     8.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (22)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-10",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     9.004,
+     -55.601,
+     102.563
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (23)",
+    "b": "Schraube (23)",
+    "occ_a": "Mutter-Bus-11",
+    "occ_b": "Schraube-Bus-11",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     28.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (23)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-11",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     27.65,
+     -55.601,
+     101.428
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (24)",
+    "b": "Schraube (24)",
+    "occ_a": "Mutter-Bus-12",
+    "occ_b": "Schraube-Bus-12",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     48.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (24)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-12",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     47.8,
+     -55.601,
+     101.65
     ]
    }
   ],
   "near_under_0.2mm": [
    {
+    "a": "Grundgestell",
+    "b": "BusBoard_silkscreen (156)",
+    "occ_a": "Gestell",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.01,
+    "at": [
+     57.348,
+     -54.0,
+     19.174
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "BusBoard_silkscreen",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.01,
+    "at": [
+     57.348,
+     -54.0,
+     90.802
+    ]
+   },
+   {
+    "a": "FMTransceiver_soldermask (7)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:2/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot6-FMTransceiver",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.026,
+    "at": [
+     44.445,
+     -42.374,
+     38.976
+    ]
+   },
+   {
+    "a": "FMTransceiver_soldermask (5)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:5/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot5-FMTransceiver",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.026,
+    "at": [
+     24.445,
+     -42.374,
+     38.976
+    ]
+   },
+   {
+    "a": "FMTransceiver_soldermask (3)",
+    "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:6/PCN10-20P-2.54DSA:1)",
+    "occ_a": "Slot4-FMTransceiver",
+    "occ_b": "BusBoard",
+    "fastener": false,
+    "distance_mm": 0.026,
+    "at": [
+     4.445,
+     -42.374,
+     38.976
+    ]
+   },
+   {
     "a": "PowerBoard_PCB",
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:4/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot1-PowerBoard",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      -55.605,
@@ -1158,6 +3576,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:5/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot5-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      24.395,
@@ -1170,6 +3589,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:6/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot4-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      4.395,
@@ -1182,6 +3602,7 @@
     "b": "PCN10-20P-2.54DSA",
     "occ_a": "Slot3-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      -15.605,
@@ -1194,6 +3615,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:2/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot6-FMTransceiver",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      44.395,
@@ -1206,6 +3628,7 @@
     "b": "PCN10-20P-2.54DSA (BusBoard:1/PCN10-20P-2.54DSA:3/PCN10-20P-2.54DSA:1)",
     "occ_a": "Slot2-CM4Carrier",
     "occ_b": "BusBoard",
+    "fastener": false,
     "distance_mm": 0.026,
     "at": [
      -35.605,
@@ -1214,10 +3637,479 @@
     ]
    },
    {
+    "a": "Einschmelzmutter (19)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-7",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -51.836,
+     -54.0,
+     101.697
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (16)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-4",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     9.922,
+     -54.0,
+     12.499
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (20)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-8",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -31.644,
+     -54.0,
+     101.884
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (21)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-9",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -8.164,
+     -54.0,
+     101.697
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (13)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-1",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -47.753,
+     -54.0,
+     8.904
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (14)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-2",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -29.689,
+     -54.0,
+     12.481
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (15)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-3",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     -12.136,
+     -54.0,
+     8.702
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (17)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-5",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     31.176,
+     -54.0,
+     7.794
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (18)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-6",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     51.176,
+     -54.0,
+     7.794
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (22)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-10",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     7.5,
+     -54.0,
+     100.0
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (23)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-11",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     27.864,
+     -54.0,
+     101.298
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (24)",
+    "b": "BusBoard_soldermask",
+    "occ_a": "Mutter-Bus-12",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.035,
+    "at": [
+     51.022,
+     -54.0,
+     97.719
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (13)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-1",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -50.853,
+     -54.0,
+     11.234
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (14)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-2",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -30.078,
+     -54.0,
+     12.499
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (15)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-3",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -8.824,
+     -54.0,
+     7.794
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (16)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-4",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     7.864,
+     -54.0,
+     8.702
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (17)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-5",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     27.864,
+     -54.0,
+     8.702
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (18)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-6",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     51.176,
+     -54.0,
+     7.794
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (19)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-7",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -52.247,
+     -54.0,
+     101.096
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (20)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-8",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -29.094,
+     -54.0,
+     97.67
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (22)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-10",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     7.5,
+     -54.0,
+     100.0
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (23)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-11",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     28.0,
+     -54.0,
+     101.5
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (24)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-12",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     51.022,
+     -54.0,
+     97.719
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (21)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Mutter-Bus-9",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.085,
+    "at": [
+     -8.577,
+     -54.0,
+     102.055
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (4)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -63.0,
+     -47.588,
+     100.753
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube (9)",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -48.562,
+     55.0,
+     3.799
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (3)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -63.0,
+     56.412,
+     106.253
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube (10)",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     51.438,
+     55.0,
+     3.799
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (11)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -48.562,
+     55.0,
+     106.201
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -63.0,
+     56.412,
+     3.747
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube (2)",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     -63.0,
+     -47.588,
+     9.247
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (12)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     51.438,
+     55.0,
+     106.201
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube (6)",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     63.0,
+     -50.412,
+     9.247
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Schraube (5)",
+    "occ_a": "Gestell",
+    "occ_b": "Schraube-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     63.0,
+     53.588,
+     3.747
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (7)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     63.0,
+     53.588,
+     106.253
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Schraube (8)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Schraube-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.1,
+    "at": [
+     63.0,
+     -50.412,
+     100.753
+    ]
+   },
+   {
     "a": "Grundgestell",
     "b": "PowerBoard_PCB",
     "occ_a": "Gestell",
     "occ_b": "Slot1-PowerBoard",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -56.894,
@@ -1227,9 +4119,23 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "PowerBoard_soldermask",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot1-PowerBoard",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     -55.555,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "PowerBoard_PCB",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot1-PowerBoard",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -55.832,
@@ -1239,9 +4145,23 @@
    },
    {
     "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (7)",
+    "occ_a": "Gestell",
+    "occ_b": "Slot6-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     44.445,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
     "b": "FMTransceiver_PCB (4)",
     "occ_a": "Gestell",
     "occ_b": "Slot6-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      43.106,
@@ -1251,9 +4171,23 @@
    },
    {
     "a": "Grundgestell",
+    "b": "FMTransceiver_soldermask (5)",
+    "occ_a": "Gestell",
+    "occ_b": "Slot5-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     24.445,
+     -42.5,
+     20.0
+    ]
+   },
+   {
+    "a": "Grundgestell",
     "b": "FMTransceiver_PCB (3)",
     "occ_a": "Gestell",
     "occ_b": "Slot5-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      23.106,
@@ -1266,6 +4200,7 @@
     "b": "FMTransceiver_PCB (2)",
     "occ_a": "Gestell",
     "occ_b": "Slot4-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      3.106,
@@ -1278,6 +4213,7 @@
     "b": "FMTransceiver_PCB",
     "occ_a": "Gestell",
     "occ_b": "Slot3-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -16.894,
@@ -1290,6 +4226,7 @@
     "b": "CM4Carrier_PCB",
     "occ_a": "Gestell",
     "occ_b": "Slot2-CM4Carrier",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -37.121,
@@ -1299,9 +4236,23 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (7)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot6-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     44.445,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "FMTransceiver_PCB (4)",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot6-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      44.168,
@@ -1311,9 +4262,36 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (5)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot5-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     24.445,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (6)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot5-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     22.829,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "FMTransceiver_PCB (3)",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot5-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      24.168,
@@ -1323,9 +4301,23 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask (3)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot4-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     4.445,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "FMTransceiver_PCB (2)",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot4-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      4.168,
@@ -1335,9 +4327,23 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "FMTransceiver_soldermask",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot3-FMTransceiver",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     -15.555,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "FMTransceiver_PCB",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot3-FMTransceiver",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -15.832,
@@ -1347,9 +4353,36 @@
    },
    {
     "a": "Grundgestell-gespiegelt",
+    "b": "CM4Carrier_soldermask",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot2-CM4Carrier",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     -35.555,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "CM4Carrier_soldermask (2)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Slot2-CM4Carrier",
+    "fastener": false,
+    "distance_mm": 0.126,
+    "at": [
+     -37.171,
+     -42.5,
+     90.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
     "b": "CM4Carrier_PCB",
     "occ_a": "Gestell-gespiegelt",
     "occ_b": "Slot2-CM4Carrier",
+    "fastener": false,
     "distance_mm": 0.126,
     "at": [
      -37.121,
@@ -1364,6 +4397,1132 @@
   "right_side": "reference/img/station-right-side.png",
   "section_xz_y0": "reference/img/section-slot2-grooves.png",
   "section_xy_connector": "reference/img/section-slot2-connector.png",
-  "section_yz_pinrow": "reference/img/section-slot2-pinrow.png"
+  "section_yz_pinrow": "reference/img/section-slot2-pinrow.png",
+  "busboard_back": "reference/img/station-back-schrauben.png",
+  "corner_right": "reference/img/station-ecke-schrauben.png"
+ },
+ "D_fasteners": {
+  "status": "warn",
+  "axes": "warn",
+  "collisions": [
+   {
+    "a": "deckplatte",
+    "b": "Schraube (3)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L3",
+    "fastener": true,
+    "volume_mm3": 7.7233,
+    "bbox": [
+     [
+      -71.0,
+      54.655,
+      104.0
+     ],
+     [
+      -68.0,
+      56.5,
+      107.0
+     ]
+    ],
+    "center": [
+     -69.5,
+     55.771,
+     105.5
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (5)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R1",
+    "fastener": true,
+    "volume_mm3": 7.7235,
+    "bbox": [
+     [
+      68.0,
+      54.655,
+      3.0
+     ],
+     [
+      71.0,
+      56.5,
+      6.0
+     ]
+    ],
+    "center": [
+     69.5,
+     55.771,
+     4.5
+    ]
+   }
+  ],
+  "touching": [
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     57.497,
+     4.375
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (2)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -51.423,
+     10.615
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (5)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     56.298,
+     6.636
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (6)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -51.386,
+     10.748
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (9)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.196,
+     60.0,
+     2.305
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (10)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.615,
+     60.0,
+     2.077
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (13)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.456,
+     -52.703,
+     9.534
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (14)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -32.498,
+     -49.0,
+     9.911
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (15)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -12.136,
+     -49.0,
+     8.702
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (16)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     11.448,
+     -49.0,
+     12.038
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (17)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-5",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     28.48,
+     -49.0,
+     11.985
+    ]
+   },
+   {
+    "a": "Grundgestell",
+    "b": "Einschmelzmutter (18)",
+    "occ_a": "Gestell",
+    "occ_b": "Mutter-Bus-6",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     52.357,
+     -49.0,
+     9.167
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (3)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     55.512,
+     107.947
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (4)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -51.423,
+     99.385
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (7)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     56.419,
+     103.442
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (8)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -51.33,
+     99.094
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (11)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.176,
+     60.0,
+     107.706
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (12)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.0,
+     60.0,
+     108.0
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (19)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-7",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.424,
+     -49.0,
+     100.611
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (20)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-8",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -30.878,
+     -54.0,
+     102.341
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (21)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-9",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -12.027,
+     -49.0,
+     98.537
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (22)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-10",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     10.311,
+     -54.0,
+     97.519
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (23)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-11",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     29.183,
+     -49.0,
+     97.637
+    ]
+   },
+   {
+    "a": "Grundgestell-gespiegelt",
+    "b": "Einschmelzmutter (24)",
+    "occ_a": "Gestell-gespiegelt",
+    "occ_b": "Mutter-Bus-12",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     52.471,
+     -49.0,
+     100.382
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     53.464,
+     4.948
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     56.438,
+     3.799
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (2)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -50.536,
+     10.448
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube (2)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     -50.6,
+     10.0
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (3)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     52.948,
+     106.705
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Einschmelzmutter (4)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Mutter-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -68.0,
+     -50.536,
+     100.448
+    ]
+   },
+   {
+    "a": "deckplatte",
+    "b": "Schraube (4)",
+    "occ_a": "Deckplatte-links",
+    "occ_b": "Schraube-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -71.0,
+     -50.6,
+     100.0
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (5)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     53.247,
+     3.088
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (6)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -50.586,
+     10.212
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (6)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     -50.6,
+     10.0
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (7)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     53.414,
+     105.712
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (7)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     54.788,
+     107.086
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Einschmelzmutter (8)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Mutter-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     68.0,
+     -49.753,
+     98.588
+    ]
+   },
+   {
+    "a": "deckplatte (2)",
+    "b": "Schraube (8)",
+    "occ_a": "Deckplatte-rechts",
+    "occ_b": "Schraube-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     71.0,
+     -50.6,
+     100.0
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Einschmelzmutter (9)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Mutter-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.755,
+     60.0,
+     2.719
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Schraube (9)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Schraube-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -50.394,
+     63.0,
+     6.051
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Einschmelzmutter (10)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Mutter-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     51.755,
+     60.0,
+     2.719
+    ]
+   },
+   {
+    "a": "leiste",
+    "b": "Schraube (10)",
+    "occ_a": "Leiste-1",
+    "occ_b": "Schraube-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.753,
+     63.0,
+     5.912
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Einschmelzmutter (11)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Mutter-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.661,
+     60.0,
+     107.368
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Schraube (11)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Schraube-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -50.419,
+     63.0,
+     107.044
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Einschmelzmutter (12)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Mutter-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     47.6,
+     60.0,
+     104.801
+    ]
+   },
+   {
+    "a": "leiste (2)",
+    "b": "Schraube (12)",
+    "occ_a": "Leiste-2",
+    "occ_b": "Schraube-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.368,
+     63.0,
+     107.057
+    ]
+   },
+   {
+    "a": "Einschmelzmutter",
+    "b": "Schraube",
+    "occ_a": "Mutter-Platte-L1",
+    "occ_b": "Schraube-Platte-L1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     53.87,
+     5.486
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (2)",
+    "b": "Schraube (2)",
+    "occ_a": "Mutter-Platte-L2",
+    "occ_b": "Schraube-Platte-L2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     -50.13,
+     10.986
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (3)",
+    "b": "Schraube (3)",
+    "occ_a": "Mutter-Platte-L3",
+    "occ_b": "Schraube-Platte-L3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     55.42,
+     104.06
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (4)",
+    "b": "Schraube (4)",
+    "occ_a": "Mutter-Platte-L4",
+    "occ_b": "Schraube-Platte-L4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -63.0,
+     -48.58,
+     98.56
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (5)",
+    "b": "Schraube (5)",
+    "occ_a": "Mutter-Platte-R1",
+    "occ_b": "Schraube-Platte-R1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     53.87,
+     3.514
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (6)",
+    "b": "Schraube (6)",
+    "occ_a": "Mutter-Platte-R2",
+    "occ_b": "Schraube-Platte-R2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     -50.13,
+     9.014
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (7)",
+    "b": "Schraube (7)",
+    "occ_a": "Mutter-Platte-R3",
+    "occ_b": "Schraube-Platte-R3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     55.42,
+     106.94
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (8)",
+    "b": "Schraube (8)",
+    "occ_a": "Mutter-Platte-R4",
+    "occ_b": "Schraube-Platte-R4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     63.0,
+     -48.58,
+     101.44
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (9)",
+    "b": "Schraube (9)",
+    "occ_a": "Mutter-Leiste-1L",
+    "occ_b": "Schraube-Leiste-1L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -49.014,
+     55.0,
+     5.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (10)",
+    "b": "Schraube (10)",
+    "occ_a": "Mutter-Leiste-1R",
+    "occ_b": "Schraube-Leiste-1R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.986,
+     55.0,
+     5.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (11)",
+    "b": "Schraube (11)",
+    "occ_a": "Mutter-Leiste-2L",
+    "occ_b": "Schraube-Leiste-2L",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -49.014,
+     55.0,
+     106.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (12)",
+    "b": "Schraube (12)",
+    "occ_a": "Mutter-Leiste-2R",
+    "occ_b": "Schraube-Leiste-2R",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     50.986,
+     55.0,
+     106.63
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (13)",
+    "b": "Schraube (13)",
+    "occ_a": "Mutter-Bus-1",
+    "occ_b": "Schraube-Bus-1",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (13)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-1",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -52.2,
+     -55.601,
+     11.65
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (14)",
+    "b": "Schraube (14)",
+    "occ_a": "Mutter-Bus-2",
+    "occ_b": "Schraube-Bus-2",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -28.753,
+     -52.333,
+     10.833
+    ]
+   },
+   {
+    "a": "Schraube (14)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-2",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -30.127,
+     -55.601,
+     12.747
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (15)",
+    "b": "Schraube (15)",
+    "occ_a": "Mutter-Bus-3",
+    "occ_b": "Schraube-Bus-3",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -11.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (15)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-3",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -10.996,
+     -55.601,
+     12.563
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (16)",
+    "b": "Schraube (16)",
+    "occ_a": "Mutter-Bus-4",
+    "occ_b": "Schraube-Bus-4",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     8.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (16)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-4",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     9.004,
+     -55.601,
+     7.437
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (17)",
+    "b": "Schraube (17)",
+    "occ_a": "Mutter-Bus-5",
+    "occ_b": "Schraube-Bus-5",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     31.247,
+     -52.333,
+     10.833
+    ]
+   },
+   {
+    "a": "Schraube (17)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-5",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     27.688,
+     -55.601,
+     8.511
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (18)",
+    "b": "Schraube (18)",
+    "occ_a": "Mutter-Bus-6",
+    "occ_b": "Schraube-Bus-6",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     48.5,
+     -49.601,
+     10.0
+    ]
+   },
+   {
+    "a": "Schraube (18)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-6",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     51.808,
+     -55.601,
+     7.928
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (19)",
+    "b": "Schraube (19)",
+    "occ_a": "Mutter-Bus-7",
+    "occ_b": "Schraube-Bus-7",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -48.614,
+     -52.601,
+     99.426
+    ]
+   },
+   {
+    "a": "Schraube (19)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-7",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -51.618,
+     -55.601,
+     102.22
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (20)",
+    "b": "Schraube (20)",
+    "occ_a": "Mutter-Bus-8",
+    "occ_b": "Schraube-Bus-8",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -31.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (20)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-8",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -31.808,
+     -55.601,
+     102.072
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (21)",
+    "b": "Schraube (21)",
+    "occ_a": "Mutter-Bus-9",
+    "occ_b": "Schraube-Bus-9",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -11.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (21)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-9",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     -10.342,
+     -55.601,
+     102.729
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (22)",
+    "b": "Schraube (22)",
+    "occ_a": "Mutter-Bus-10",
+    "occ_b": "Schraube-Bus-10",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     8.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (22)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-10",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     9.004,
+     -55.601,
+     102.563
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (23)",
+    "b": "Schraube (23)",
+    "occ_a": "Mutter-Bus-11",
+    "occ_b": "Schraube-Bus-11",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     28.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (23)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-11",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     27.65,
+     -55.601,
+     101.428
+    ]
+   },
+   {
+    "a": "Einschmelzmutter (24)",
+    "b": "Schraube (24)",
+    "occ_a": "Mutter-Bus-12",
+    "occ_b": "Schraube-Bus-12",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     48.5,
+     -49.601,
+     100.0
+    ]
+   },
+   {
+    "a": "Schraube (24)",
+    "b": "BusBoard_PCB",
+    "occ_a": "Schraube-Bus-12",
+    "occ_b": "BusBoard",
+    "fastener": true,
+    "distance_mm": 0.0,
+    "at": [
+     47.8,
+     -55.601,
+     101.65
+    ]
+   }
+  ]
  }
 }

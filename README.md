@@ -10,8 +10,9 @@ Druck-G-Codes in SolidCraft parametrisch nachgebaut
 
 ![Station, Iso-Ansicht](desktop/station-iso.png)
 
-Die Gesamtbaugruppe `desktop/station.sc` enthält alle Gehäuseteile und die echten Platinen
-(KiCad-STEP) und dient der Passungsprüfung.
+Die Gesamtbaugruppe `desktop/station.sc` enthält alle Gehäuseteile, die echten Platinen
+(KiCad-STEP, mit allen Bauteilmodellen, Pads, Bestückungsdruck und Lötstopplack) und alle Schrauben
+und Einschmelzmuttern (61 Occurrences) und dient der Passungsprüfung.
 
 ## Teileliste (pro Station)
 
@@ -20,11 +21,20 @@ Die Gesamtbaugruppe `desktop/station.sc` enthält alle Gehäuseteile und die ech
 | 1 | Grundgestell (normal, unten) | `desktop/parts/grundgestell.sc` / `.step` |
 | 1 | Grundgestell gespiegelt (oben; so wurde es 2025 gedruckt) | `desktop/parts/grundgestell-gespiegelt.sc` / `.step` |
 | 2 | Deckplatte (mit erhabenem Logo, links und rechts) | `desktop/parts/deckplatte.sc` / `.step` |
-| 4 | Leiste (2 pro Gestell) | `desktop/parts/leiste.sc` / `.step` |
+| 2 | Leiste (vorne, eine pro Gestell; sie halten die Module an der Front) | `desktop/parts/leiste.sc` / `.step` |
+| 24 | Einschmelzmutter M3 (Ø 5 × 5, vereinfacht) | `desktop/parts/einschmelzmutter-m3.sc` / `.step` |
+| 12 | Schraube M3×8 ISO 4762 (8 Platten, 4 Leisten) | `desktop/parts/schraube-m3x8.sc` / `.step` |
+| 12 | Schraube M3×6 ISO 4762 (BusBoard) | `desktop/parts/schraube-m3x6.sc` / `.step` |
 
 Das normale Grundgestell ist ein reines Spiegelbild des gespiegelten. Die beiden Deckplatten sitzen
 nach der Auswertung der Bohrbilder an den Seiten (±X), nicht vorne/hinten
-([reference/assembly.md](reference/assembly.md)).
+([reference/assembly.md](reference/assembly.md)). Das Logo steht so, dass die Schrift neben dem
+BusBoard liegt: Die Station steht im Betrieb auf dem BusBoard, die Module stehen auf dem Bus. Es
+ist dasselbe Teil auf beiden Seiten. Hinten am BusBoard sitzen keine Leisten.
+
+Schrauben und Einschmelzmuttern sind eigene parametrische Teile (Schraubenlänge `L`, je eine Datei
+pro Länge, damit sich jede sauber verknüpfen lässt). Die Platzierung (welche Bohrung, welche Länge)
+steht in der Befestigungstabelle in [reference/assembly.md](reference/assembly.md).
 
 ![Deckplatte mit Logo](desktop/logo/deckplatte-top.png)
 
@@ -51,13 +61,16 @@ STL, 3MF und G-Code gehören nicht ins Repo
 
 ## Hardware
 
-- 6 × Einschmelzmutter M3 (Ø 5 mm × 5 mm tiefe Taschen) in der Rückseite jedes Gestells. Das ist eine
-  **Interpretation** der Ø-5-Taschen, nicht gemessen. Ein Gestell hat 6 Taschen, zusammen 12 für die
-  Befestigung des BusBoards. Weitere Ø-5×5-Taschen sitzen an den Seiten und vorne (je Ø 3,2 weiter);
-  ob dort ebenfalls Einschmelzmuttern sitzen, ist nicht belegt.
-- M3-Schrauben für BusBoard, Leisten und Deckplatten. **Längen unbekannt.** Obergrenzen aus den
-  Bohrtiefen: Leisten (3 mm dick) vorne ≤ 12 mm, Deckplatten (3 mm dick) seitlich ≤ 13 mm, jeweils
-  ohne Einschmelzmutter-Tasche gerechnet. Bitte am Original nachmessen.
+| Anzahl | Teil | Verwendung |
+|---|---|---|
+| 24 | Einschmelzmutter M3 (Ø 5 mm × 5 mm tiefe Taschen) | 12 in den Rückseitentaschen der Gestelle (BusBoard), 8 in den Seitenbohrungen (Deckplatten), 4 in den Frontbohrungen (Leisten) |
+| 12 | Schraube M3×8, ISO 4762 / DIN 912 | 8 Deckplatten (4 je Seite), 4 Leisten (2 je Leiste) |
+| 12 | Schraube M3×6, ISO 4762 / DIN 912 | BusBoard an die Gestelle (6 je Gestell, von hinten durch die Platine) |
+
+Dass die Ø-5-Taschen für Einschmelzmuttern gedacht sind, ist eine **Interpretation**, nicht gemessen.
+Die Schraubenlängen folgen aus den Bohrtiefen (Platte oder Leiste 3 mm + Mutter 5 mm = 8 mm; Platine
+1,6 mm + Mutter 5 mm, daher 6 mm am BusBoard) und sind in der Baugruppe so modelliert; bitte am Original
+nachmessen.
 
 ## Status / offene Punkte
 
@@ -66,23 +79,23 @@ Kurz: Alle 6 Platinen sitzen in den Nuten, alle 12 BusBoard-Löcher fluchten mit
 Stecker stecken (alle 20 Stifte je Slot in ihren Kammern). Offen:
 
 - **Deckplatten-Loch um 1,0 mm daneben:** Das Loch (9 | 105,5) der Deckplatte liegt 1,0 mm neben der
-  Gestell-Bohrung. Praktisch: Dort geht so keine M3-Schraube durch (nur ca. 2,2 mm Durchgang, fit-check Befund 2). Entweder ist die nachgebaute Position falsch (8 | 105,5) oder die echte
-  Bohrung im oberen Gestell sitzt bei y = 54 (assembly.md, Frage 2).
-- **Logo rechts steht auf dem Kopf:** Das Lochbild der Platte ist nicht symmetrisch; auf der +X-Seite
-  muss sie um 180° gedreht werden (assembly.md, Frage 3). Eine gespiegelte Platte wäre nötig.
-- **Position der hinteren Leisten unbestätigt:** Zwei Leisten sitzen sicher vorne an den Gestellen;
-  die zwei anderen sind als Klemmleisten auf der Rückseite des BusBoards angenommen
-  (assembly.md, Frage 4).
+  Gestell-Bohrung. Die Plattenschrauben sitzen auf den Gestellbohrungen und durchdringen dort die Platte
+  (je Platte eine Schraube, 7,7 mm³ Überschneidung; fit-check Befund 2). Entweder ist die nachgebaute
+  Position falsch (8 | 105,5) oder die echte Bohrung im oberen Gestell sitzt bei y = 54 (assembly.md, Frage 2).
 - **0,1 mm Stecker-Modellkonflikt:** Die Herstellermodelle von Stiftleiste und Buchse überschneiden
   sich um 0,1 mm (4,129 mm³ je Slot). Die Ursache ist offen, vermutlich Modellungenauigkeit; die
   Prüfung meldet deshalb ⚠️.
 
 Die Deckplatten heißen in `station.sc` `Deckplatte-links` (-X) und `Deckplatte-rechts` (+X); die Spec sagte "vorne/hinten" (Seitenzuordnung von Peter zu bestätigen, assembly.md Frage 1).
+Entschieden (Peter): Logo mit der Schrift neben dem BusBoard, dasselbe Teil auf beiden Seiten; Leisten nur vorne
+(assembly.md, Fragen 3 und 4).
 
 ## Dateien öffnen und neu erzeugen
 
 **Baugruppe öffnen:** `desktop/station.sc` in SolidCraft öffnen. Die Gehäuseteile sind verknüpfte
-Komponenten aus `desktop/parts/` (Änderungen an den Teilen wirken in der Baugruppe). Die Platinen sind
+Komponenten aus `desktop/parts/` (Änderungen an den Teilen wirken in der Baugruppe), auch die 48
+Schrauben und Einschmelzmuttern (je Befestigungsstelle eine eigene verknüpfte Komponente, z. B.
+`Schraube-Platte-L1`, `Mutter-Bus-7`). Die Platinen sind
 **nicht** verknüpft: `station.sc` enthält eingebettete STEP-Schnappschüsse der Dateien aus `pcb/`. Slot 1 PowerBoard,
 Slot 2 CM4Carrier, Slot 3-6 FMTransceiver (Platzhalter). Der DeviceTester liegt als STEP bereit
 (`pcb/DeviceTester.step`, `pcb/DeviceTester-slot.step`), ist aber nicht bestückt.
