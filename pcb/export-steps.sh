@@ -10,6 +10,10 @@ mods="$(cd "${1:-..}" && pwd)"
 out="${OUT_DIR:-$here}"
 modules="${MODULES:-BusBoard PowerBoard CM4Carrier FMTransceiver DeviceTester}"
 kv="$(kicad-cli version)"
+# Board detail: pads, silkscreen and solder mask as faces (tracks/zones stay out: they sit
+# under the mask and double the file size). DETAIL="" gives a plain board.
+DETAIL="${DETAIL---include-pads --include-silkscreen --include-soldermask}"
+NOTE="models remapped to KiCad 10${DETAIL:+; $DETAIL}"
 mkdir -p "$out"
 
 # Guard all repos first, so nothing is exported on refusal.
@@ -42,12 +46,34 @@ for m in $modules; do
   [ "${#pcbs[@]}" -eq 1 ] || { echo "error: HW-Module-$m: expected exactly one .kicad_pcb at root, found ${#pcbs[@]}" >&2; exit 1; }
   pcb="${pcbs[0]}"
   sha="$(git -C "$repo" rev-parse HEAD)"
-  kicad-cli pcb export step --subst-models --force -o "$out/$m.step" "$pcb" >&2
-  rows["$m"]="| $m | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | |"
+  # Export from a pristine copy of HEAD with the 3D model paths rewritten for KiCad 10:
+  # the boards reference ${KICAD8/9_3DMODEL_DIR}/*.wrl, but the KiCad 10 library ships
+  # only .step files, and --subst-models only substitutes when the .wrl exists.
+  # Without this rewrite every passive and IC silently drops out of the STEP.
+  work="$(mktemp -d)"
+  git -C "$repo" archive HEAD | tar -x -C "$work"
+  wpcb="$work/$(basename "$pcb")"
+  sed -i -E \
+    -e 's/\$\{KICAD[0-9]+_3DMODEL_DIR\}/${KICAD10_3DMODEL_DIR}/g' \
+    -e 's/(\(model "[^"]*)\.wrl"/\1.step"/g' \
+    -e 's#Package_SO\.3dshapes/VSSOP-10_3x3mm_P0\.5mm\.step#Package_SO.3dshapes/MSOP-10_3x3mm_P0.5mm.step#g' \
+    "$wpcb"
+  export_one() {  # export_one OUTFILE [extra kicad-cli args...]
+    local o="$1"; shift
+    LC_ALL=C kicad-cli pcb export step --subst-models --force $DETAIL "$@" -o "$o" "$wpcb" 2>&1 \
+      | tee "$work/log" >&2
+    if grep -qiE "not found|could not" "$work/log"; then
+      echo "error: HW-Module-$m: 3D models missing in $(basename "$o") (see above)" >&2
+      rm -rf "$work"; exit 1
+    fi
+  }
+  export_one "$out/$m.step"
+  rows["$m"]="| $m | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | $NOTE |"
   if [ "$m" = "DeviceTester" ]; then
-    kicad-cli pcb export step --subst-models --force --variant Slot --no-dnp -o "$out/$m-slot.step" "$pcb" >&2
-    rows["$m-slot"]="| $m-slot | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | variant Slot, --no-dnp |"
+    export_one "$out/$m-slot.step" --variant Slot --no-dnp
+    rows["$m-slot"]="| $m-slot | OE5XRX/HW-Module-$m | $sha | $(basename "$pcb") | $kv | variant Slot, --no-dnp; $NOTE |"
   fi
+  rm -rf "$work"
 done
 
 {
