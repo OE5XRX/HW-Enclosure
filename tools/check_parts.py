@@ -39,6 +39,12 @@ EXPECTED = {
         Expect(97892.06, (-68, -60, 0), (68, 60, 20), com_x=1.957),
     "desktop/parts/grundgestell.sc":
         Expect(97892.06, (-68, -60, 0), (68, 60, 20), com_x=-1.957),
+    # ISO 4762 M3: head Ø5.5 x 3 (z 0…3, bearing face z = 0) with hex socket 2.5 AF x 1.3,
+    # shank Ø3 x L (z -L…0). Volume = pi*2.75^2*3 + pi*1.5^2*L - 5.413*1.3 (hex area x depth)
+    "desktop/parts/schraube-m3x8.sc": Expect(120.77, (-2.75, -2.75, -8), (2.75, 2.75, 3)),
+    "desktop/parts/schraube-m3x6.sc": Expect(106.63, (-2.75, -2.75, -6), (2.75, 2.75, 3)),
+    # heat-set insert, simplified: Ø5 x 5 (z -5…0, top face z = 0) with Ø3 through-bore
+    "desktop/parts/einschmelzmutter-m3.sc": Expect(62.83, (-2.5, -2.5, -5), (2.5, 2.5, 0)),
 }
 
 
@@ -106,7 +112,7 @@ def _part_bbox(rel):
 # origin = KiCad page origin, y = -KiCad y), measured after file.insert_step
 # at identity; the board outlines match reference/assembly.md E8 exactly.
 STEP_BBOX = {
-    "BusBoard": ((65.284, -125.396, -1.5988), (182.65, -25.396, 13.2012)),
+    "BusBoard": ((65.284, -125.396, -1.635), (182.65, -25.396, 13.2012)),
     "PowerBoard": ((99.568, -140.64, -1.0988), (205.994, -40.64, 10.0012)),
     "CM4Carrier": ((93.222, -145.794, -1.4488), (199.648, -45.794, 15.1012)),
     "FMTransceiver": ((85.217, -136.271, -1.9788), (204.343, -36.271, 9.9012)),
@@ -126,8 +132,6 @@ STATION = [
     Occ("Deckplatte-rechts", *_PLATTE, (("x", -90), ("z", -90)), (68, 4.5, 55)),
     Occ("Leiste-1", *_LEISTE, (("x", -90),), (0, 60, 4.25)),
     Occ("Leiste-2", *_LEISTE, (("x", -90), ("y", 180)), (0, 60, 105.75)),
-    Occ("Leiste-3", *_LEISTE, (("x", -90), ("z", 180)), (0, -55.6012, 9.75)),
-    Occ("Leiste-4", *_LEISTE, (("x", 90),), (0, -55.6012, 100.25)),
     Occ("BusBoard", *STEP_BBOX["BusBoard"], (("x", -90),), (-125.284, -55.6012, -20.396)),
     Occ("Slot1-PowerBoard", *STEP_BBOX["PowerBoard"], _MOD, (-57.1212, 157.194, -35.64)),
     Occ("Slot2-CM4Carrier", *STEP_BBOX["CM4Carrier"], _MOD, (-37.1212, 150.848, -40.794)),
@@ -136,6 +140,41 @@ STATION = [
     Occ("Slot5-FMTransceiver", *STEP_BBOX["FMTransceiver"], _MOD, (22.8788, 155.543, -31.271)),
     Occ("Slot6-FMTransceiver", *STEP_BBOX["FMTransceiver"], _MOD, (42.8788, 155.543, -31.271)),
 ]
+
+
+def fasteners():
+    """Fastener occurrences (reference/assembly.md, Befestigung): 24 M3 inserts,
+    12 M3x8 and 12 M3x6 screws. Returns [(name, part file, rot, t)]; the screw's
+    origin is its bearing face (head +Z, shank -Z), the insert's its top face
+    (body -Z), so one rotation per direction serves both."""
+    out = []
+    s8, s6, ins = ("desktop/parts/schraube-m3x8.sc", "desktop/parts/schraube-m3x6.sc",
+                   "desktop/parts/einschmelzmutter-m3.sc")
+    # Side plates: bores at x = +-68, (y, z); screw head outward (+-X), insert inward.
+    for tag, sx, rot in (("L", -1, (("y", -90),)), ("R", 1, (("y", 90),))):
+        for i, (y, z) in enumerate(((55, 4.5), (-49, 10), (55, 105.5), (-49, 100)), 1):
+            out.append((f"Mutter-Platte-{tag}{i}", ins, rot, (68 * sx, y, z)))
+            out.append((f"Schraube-Platte-{tag}{i}", s8, rot, (71 * sx, y, z)))
+    # Front strips: bores at y = 60, x = +-50; head toward +Y (front), shank -Y.
+    for strip, z in ((1, 4.5), (2, 105.5)):
+        for tag, x in (("L", -50), ("R", 50)):
+            out.append((f"Mutter-Leiste-{strip}{tag}", ins, (("x", -90),), (x, 60, z)))
+            out.append((f"Schraube-Leiste-{strip}{tag}", s8, (("x", -90),), (x, 63, z)))
+    # BusBoard: pockets from y = -54 into +Y; screw head on the back face toward -Y.
+    n = 0
+    for z in (10, 100):
+        for x in (-50, -30, -10, 10, 30, 50):
+            n += 1
+            out.append((f"Mutter-Bus-{n}", ins, (("x", 90),), (x, -54, z)))
+            out.append((f"Schraube-Bus-{n}", s6, (("x", 90),), (x, -55.6012, z)))
+    return out
+
+
+def _fastener_occs():
+    return [Occ(n, *_part_bbox(f), r, t) for n, f, r, t in fasteners()]
+
+
+STATION += _fastener_occs()
 
 ASSEMBLIES = {
     "desktop/station.sc": AssemblyExpect(STATION),
